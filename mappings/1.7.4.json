@@ -1,0 +1,231 @@
+{
+  "mappingInfo": {
+    "name": "1.7.4",
+    "desc": "Converts 1.7.4 TexturePacks into 1.5.2 Format",
+    "achievement": {
+      "assets/minecraft/textures/gui/achievement/": "test/"
+    },
+    "armor": {
+      "assets/minecraft/textures/models/armor/": "armor/"
+    },
+    "armorCreeper": {
+      "assets/minecraft/textures/entity/creeper/": "armor/"
+    },
+    "armorWither": {
+      "assets/minecraft/textures/entity/wither/": "armor/"
+    },
+    "art": {
+      "assets/minecraft/textures/painting/": "art/"
+    },
+    "enviroment": {
+      "assets/minecraft/textures/enviroment/": "enviroment/"
+    },
+    "font": {
+      "assets/minecraft/textures/font/": "font/"
+    },
+    "gui": {
+      "assets/minecraft/textures/gui/": "gui/"
+    },
+    "unknown_pack":{
+      "assets/minecraft/textures/misc/": "gui/"
+    },
+    "item": {
+      "assets/minecraft/textures/entity/": "item/"
+    },
+    "colormap": {
+      "assets/minecraft/textures/colormap/": "misc/"
+    },
+    "map": {
+      "assets/minecraft/textures/map/": "misc/"
+    },
+    "misc": {
+      "assets/minecraft/textures/misc/": "misc/"
+    },
+    "footprint": {
+      "assets/minecraft/textures/particle/": "misc/"
+    },
+    "mob": {
+      "assets/minecraft/textures/entity/": "mob/"
+    },
+    "blocks": {
+      "assets/minecraft/textures/blocks/": "textures/blocks/"
+    },
+    "items": {
+      "assets/minecraft/textures/items/": "textures/blocks/"
+    },
+    "title": {
+      "assets/minecraft/textures/gui/title/": "title/"
+    },
+    "particles": {
+      "assets/minecraft/textures/particle/": "gui/"
+    }
+  },
+  "mappings": {
+    "achievement": {
+      "achievement_background": "bg",
+      "achievement_icons": "icons"
+    },
+    "armor": {
+      "chainmail_layer_1": "chain_1",
+      "chainmail_layer_2": "chain_2",
+      "leather_layer_1": "cloth_1",
+      "leather_layer_1_overlay": "cloth_1b",
+      "leather_layer_2": "cloth_2",
+      "leather_layer_2_overlay": "cloth_2b",
+      "diamond_layer_1": "diamond_1",
+      "diamond_layer_2": "diamond_2",
+      "gold_layer_1": "gold_1",
+      "gold_layer_2": "gold_2",
+      "iron_layer_1": "iron_1",
+      "iron_layer_2": "iron_2"
+    },
+    "armorCreeper": {
+      "creeper_armor": "power"
+    },
+    "armorWither": {
+      "wither_armor": "witherarmor"
+    },
+    "art": {
+      "paintings_kristoffer_zetterstrand": "kz"
+    },
+    "enviroment": {
+      "clouds": "clouds",
+      "moon_phases": "moon_phases",
+      "rain": "rain",
+      "snow": "snow",
+      "sun": "sun"
+    },
+    "font": {
+      "ascii": "default",
+      "ascii_sga": "alternate"
+    },
+    "gui": {
+      "book": "book",
+      "demo_background": "demo_bg",
+      "icons": "icons",
+      "options_background": "background",
+      "widgets": "gui",
+      "container/anvil": "repair",
+      "container/beacon": "beacon",
+      "container/brewing_stand": "alchemy",
+      "container/crafting_table": "crafting",
+      "container/dispenser": "trap",
+      "container/enchanting_table": "enchant",
+      "container/furnace": "furnace",
+      "container/generic_54": "container",
+      "container/hopper": "hopper",
+      "container/inventory": "inventory",
+      "container/stats_icons": "slots",
+      "container/villager": "trading",
+      "container/creative_inventory/tabs": "allitems",
+      "container/creative_inventory/tab_inventory": "creative_inv/survival_inv",
+      "container/creative_inventory/tab_items": "creative_inv/list_items",
+      "container/creative_inventory/tab_item_search": "creative_inv/search"
+    },
+    "unknown_pack":{
+      "unknown_pack": "unknown_pack"
+    },
+    "item": {
+      "arrow": "arrow",
+      "boat": "boat",
+      "enchanting_table_book": "book",
+      "minecart": "cart",
+      "chest/normal": "chest",
+      "chest/normal_double": "largechest",
+      "chest/ender": "enderchest",
+      "chest/christmas": "xmaschest",
+      "chest/christmas_double": "largexmaschest",
+      "chest/trapped": "chests/trap_small",
+      "chest/trapped_double": "chests/trap_large",
+      "sign": "sign",
+      "skis": "skis"
+    },
+    "colormap": {
+      "foliage": "foliagecolor",
+      "grass": "grasscolor"
+    },
+    "map": {
+      "map_background": "mapbg",
+      "map_icons": "mapicons"
+    },
+    "misc": {
+      "enchanted_item_glint": "glint",
+      "pumpkinblur": "pumpkinblur",
+      "shadow": "shadow",
+      "underwater": "water",
+      "vignette": "vignette"
+    },
+    "footprint": {
+      "footprint": "footprint"
+    },
+    "mob": {
+      "enderdragon/dragon": "enderdragon/ender",
+      "enderdragon/dragon_eyes": "enderdragon/ender_eyes",
+      "enderdragon/dragon_exploding": "enderdragon/shuffle",
+      "endercrystal/endercrystal": "enderdragon/crystal",
+      "endercrystal/endercrystal_beam": "enderdragon/beam",
+      "bat": "bat",
+      "cat/black": "cat_black",
+      "cat/red": "cat_red",
+      "cat/siamese": "cat_siamese",
+      "cat/ocelot": "ozelot",
+      "spider/cave_spider": "cavespider",
+      "spider/spider": "spider",
+      "spider_eyes": "spider_eyes",
+      "steve": "char",
+      "chicken": "chicken",
+      "cow/cow": "cow",
+      "cow/mooshroom": "redcow",
+      "creeper/creeper": "creeper",
+      "enderman/enderman": "enderman",
+      "enderman/enderman_eyes": "enderman_eyes",
+      "blaze": "fire",
+      "ghast/ghast": "ghast",
+      "ghast/ghast_shooting": "ghast_fire",
+      "slime/magmacube": "lava",
+      "slime/slime": "slime",
+      "pig/pig": "pig",
+      "pig/pig_saddle": "saddle",
+      "zombie_pigman": "pigzombie",
+      "sheep/sheep": "sheep",
+      "sheep/sheep_fur": "sheep_fur",
+      "silverfish": "silverfish",
+      "skeleton/skeleton": "skeleton",
+      "snowman": "snowman",
+      "squid": "squid",
+      "iron_golem": "villager_golem",
+      "wither/wither": "wither",
+      "wither/wither_invulnerable": "wither_invul",
+      "wolf/wolf": "wolf",
+      "wolf/wolf_angry": "wolf_angry",
+      "wolf/wolf_collar": "wolf_collar",
+      "wolf/wolf_tame": "wolf_tame",
+      "zombie/zombie": "zombie",
+      "zombie/zombie_villager": "zombie_villager",
+      "villager/butcher": "villager/butcher",
+      "villager/farmer": "villager/farmer",
+      "villager/librarian": "villager/librarian",
+      "villager/priest": "villager/priest",
+      "villager/smith": "villager/smith",
+      "villager/villager": "villager/villager",
+      "witch": "villager/witch"
+    },
+    "blocks": {
+      "cobblestone": "stonebrick",
+      "cobblestone_mossy": "stoneMoss"
+    },
+    "title": {
+      "minecraft": "mclogo",
+      "mojang": "mojang",
+      "background/panorama_0": "bg/panorama0",
+      "background/panorama_1": "bg/panorama1",
+      "background/panorama_2": "bg/panorama2",
+      "background/panorama_3": "bg/panorama3",
+      "background/panorama_4": "bg/panorama4",
+      "background/panorama_5": "bg/panorama5"
+    },
+    "particles": {
+      "particles": "particles"
+    }
+  }
+}

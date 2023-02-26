@@ -1,0 +1,24 @@
+{
+  "options": {
+    "achievement": true,
+    "armor": true,
+    "armorCreeper": true,
+    "armorWither": true,
+    "art": true,
+    "enviroment": true,
+    "font": true,
+    "gui": true,
+    "unknown_pack": true,
+    "item": true,
+    "colormap": true,
+    "map": true,
+    "misc": true,
+    "footprint": true,
+    "mob": true,
+    "blocks": true,
+    "items": true,
+    "title": true,
+    "particles": true,
+    "text": false
+  }
+}
