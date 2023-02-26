@@ -22,6 +22,7 @@ import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 
 import org.json.simple.parser.ParseException;
+import org.tpc.SettingsReader;
 import org.tpc.Version;
 
 @SuppressWarnings("serial")
@@ -36,6 +37,7 @@ public class ConsoleLogWindow extends JFrame{
 			setSize(600, 300);
 			setPreferredSize(new Dimension(600,300));
 			setTitle("Console log");
+			setIconImage(MainWindow.icon.getImage());
 			
 	        addWindowListener(new WindowAdapter() {
 	            @Override
@@ -69,8 +71,8 @@ public class ConsoleLogWindow extends JFrame{
 				public void actionPerformed(ActionEvent e) {
 //					MainWindow.settings.getPreferences().putBoolean("OPEN_CONSOLE_ON_START", openOnStart.isSelected());
 					try {
-						System.out.println(openOnStart.isSelected());
-						MainWindow.settings.writeSettings("openLogStartUp", openOnStart.isSelected());
+//						System.out.println(openOnStart.isSelected());
+						MainWindow.settings.writeSettings(SettingsReader.OPEN_LOG_ON_START, openOnStart.isSelected());
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();

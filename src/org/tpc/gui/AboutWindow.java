@@ -3,9 +3,11 @@ package org.tpc.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,10 +27,17 @@ public class AboutWindow extends JFrame {
 		setLocationRelativeTo(null);
 		setLayout(new BorderLayout(10, 10));
 		setResizable(false);
+		setIconImage(MainWindow.icon.getImage());
+		
+		ImageIcon logo = new ImageIcon("tpc_logo.png");
 		
         JSeparator sep1 = createSeperator();
         JSeparator sep2 = createSeperator();
         JSeparator sep3 = createSeperator();
+        
+        sep1.setForeground(Color.lightGray);
+        sep2.setForeground(Color.lightGray);
+        sep3.setForeground(Color.lightGray);
         
 		JPanel topPanel = new JPanel();
 		JPanel bottomPanel = new JPanel();
@@ -40,12 +49,12 @@ public class AboutWindow extends JFrame {
 //		leftPanel.setBackground(Color.yellow);
 //		rightPanel.setBackground(Color.magenta);
 		
-		topPanel.setPreferredSize(new Dimension(50, 100));
-		bottomPanel.setPreferredSize(new Dimension(50, 100));
+		topPanel.setPreferredSize(new Dimension(150, 250));
+		bottomPanel.setPreferredSize(new Dimension(50, 50));
 		leftPanel.setPreferredSize(new Dimension(150, 100));
 		rightPanel.setPreferredSize(new Dimension(150, 100));
 		
-		topPanel.setLayout(new GridLayout(0,1));
+		topPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 100, 10));
 		bottomPanel.setLayout(new GridLayout(0,1));
 		leftPanel.setLayout(new GridLayout(0,1));
 		rightPanel.setLayout(new GridLayout(0,1));
@@ -69,12 +78,22 @@ public class AboutWindow extends JFrame {
 		
 		JLabel year = addlabel( "2023", Font.PLAIN, 12);
 		JLabel licence = addlabel( "Licence here", Font.PLAIN, 12);
+
+		
+		JLabel imgLabel = new JLabel();
+		imgLabel.setIcon(logo);
+		imgLabel.setPreferredSize(new Dimension(175,175));
+//		imgLabel.setBounds(0,0,300,300);
+		imgLabel.setHorizontalAlignment(JLabel.CENTER);
+		
 		
 		
 		topPanel.add(title);
 		topPanel.add(version);
 		
-//		leftPanel.add(sep1);		
+		topPanel.add(imgLabel);		
+//		topPanel.add(sep1);		
+		
 		leftPanel.add(credits);
 		leftPanel.add(sock);
 		leftPanel.add(zhil);
@@ -85,8 +104,8 @@ public class AboutWindow extends JFrame {
 		rightPanel.add(source);
 		rightPanel.add(url);
 		
-//		bottomPanel.add(sep3);
-		bottomPanel.add(year);
+		bottomPanel.add(sep3);
+//		bottomPanel.add(year);
 		bottomPanel.add(licence);
 		
 		pack();

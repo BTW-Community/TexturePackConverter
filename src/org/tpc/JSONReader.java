@@ -66,6 +66,7 @@ public class JSONReader {
         String[] items = getLocations(info, "items");
         String[] title = getLocations(info, "title");
         String[] particles = getLocations(info, "particles");
+//        String[] text = getLocations(info, "text");
 
         MainWindow.consoleLog.log("Loaded Mappings for version " + version, false);
         MainWindow.consoleLog.log(description, false);

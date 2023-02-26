@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.io.File;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
@@ -18,6 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.tpc.JSONReader;
 import org.tpc.OptionsReader;
@@ -42,15 +44,17 @@ public class MainWindow extends JFrame {
 	public static AboutWindow aboutWindow;
 	
 	public static JButton optionsButton;
-	
+	public static JButton exportButton;
 	public static JMenuItem consoleItem;
+	
+	public static ImageIcon icon;
 	
 	public MainWindow() throws Exception {
 		
 		super("Main Window");
 		
 		main = this;
-		
+
 		setSize(650,350);
 		setMinimumSize(new Dimension(650,350));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,10 +63,12 @@ public class MainWindow extends JFrame {
 		setLayout(new BorderLayout(10, 10));
 		setResizable(false);
 		
+		icon = new ImageIcon("tpc_mini.png");
+		setIconImage(icon.getImage());
+		
 		settings = new SettingsReader();		
 		consoleLog = new ConsoleLogWindow();
-		aboutWindow = new AboutWindow();
-		
+		aboutWindow = new AboutWindow();		
 
 
         JSeparator sep = new JSeparator();
@@ -108,7 +114,7 @@ public class MainWindow extends JFrame {
 		
 //		panel6.setBackground(Color.orange);
 		
-		panel1.setPreferredSize(new Dimension(100, 50));
+		panel1.setPreferredSize(new Dimension(100, 25));
 		panel2.setPreferredSize(new Dimension(100, 100));
 		panel3.setPreferredSize(new Dimension(50, 100));
 		panel4.setPreferredSize(new Dimension(50, 100));
@@ -166,6 +172,7 @@ public class MainWindow extends JFrame {
 		openButton.setBounds(0,0, 100, 50);
 		openButton.setToolTipText("Choose Zip File");
 		openButton.addActionListener(e -> openDialoge());
+				
 		panel5.add(openButton);
 		
 		JLabel saveLabel = new JLabel("Choose export location and file name:");
@@ -199,9 +206,9 @@ public class MainWindow extends JFrame {
 		});
 		panel2.add(optionsButton);
 		
-		JButton exportButton = new JButton("Convert");
+		exportButton = new JButton("Convert");
 		exportButton.setBounds(0,0, 100, 50);
-//		exportButton.addActionListener(e -> saveDialoge());
+		exportButton.addActionListener(e -> convertDialoge());
 		panel2.add(exportButton);
 		
 //		JProgressBar bar = new JProgressBar(0, 100);
@@ -216,6 +223,11 @@ public class MainWindow extends JFrame {
 		
 		pack();
 		setVisible(true);
+	}
+
+	private void convertDialoge() {
+		exportButton.setEnabled(false);
+		new ConvertWindow();
 	}
 
 	private void openConsole() {
@@ -241,6 +253,9 @@ public class MainWindow extends JFrame {
 	
 	private void openDialoge() {
 		JFileChooser fileChooser = new JFileChooser(".");
+//		FileNameExtensionFilter filter = new FileNameExtensionFilter("Zip Files", "zip");
+//		fileChooser.setFileFilter(filter);
+		
 		int response = fileChooser.showOpenDialog(null);
 		
 		if (response == JFileChooser.APPROVE_OPTION)
@@ -261,6 +276,8 @@ public class MainWindow extends JFrame {
 		
 		JFileChooser fileChooser = new JFileChooser(loc);
 		int response = fileChooser.showSaveDialog(null);
+//		FileNameExtensionFilter filter = new FileNameExtensionFilter("Zip Files", "zip");
+//		fileChooser.setFileFilter(filter);
 		
 		if (response == JFileChooser.APPROVE_OPTION)
 		{

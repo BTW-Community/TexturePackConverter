@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -16,14 +17,19 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import org.json.simple.parser.ParseException;
 import org.tpc.OptionsReader;
 
 @SuppressWarnings("serial")
 public class OptionsWindow extends JFrame {
 
+	private OptionsReader options;
+
 	public OptionsWindow(OptionsReader options) throws Exception {
 		
 		super("Options Window");
+		
+		this.options = options;
 		
 		setSize(400,250);
 		setMinimumSize(new Dimension(250,400));
@@ -32,6 +38,7 @@ public class OptionsWindow extends JFrame {
 		setTitle("Options");
 		setLocationRelativeTo(null);
 		setResizable(false);
+		setIconImage(MainWindow.icon.getImage());
 		
         addWindowListener(new WindowAdapter() {
             @Override
@@ -88,7 +95,14 @@ public class OptionsWindow extends JFrame {
     	box.setText(name);
     	box.setSelected(selected);
     	box.setFocusable(false);
-    	box.addActionListener(e -> enabled(box));
+    	box.addActionListener(e -> {
+			try {
+				enabled(box);
+			} catch (IOException | ParseException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
 
     	if (box.isSelected())
     	{
@@ -99,9 +113,11 @@ public class OptionsWindow extends JFrame {
     	panel.add(box);
 	}
 
-	private void enabled(JCheckBox box) {
-		MainWindow.consoleLog.log(box.getText() + " set to: " + box.isSelected(),false);
-    	
+	private void enabled(JCheckBox box) throws IOException, ParseException {
+		//MainWindow.consoleLog.log("Options: \"" + box.getText() + "\" set to " + box.isSelected(),false);
+		
+		options.writeOption((String) box.getText(), box.isSelected());
+		
     	if (box.isSelected())
     	{
     		box.setForeground(Color.darkGray);
