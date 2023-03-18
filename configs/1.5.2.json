@@ -1,0 +1,27 @@
+{
+  "configs": [
+    "vanilla"
+  ],
+  "vanilla": {
+    "pack": true,
+    "achievement": true,
+    "armor": true,
+    "entityArmor": true,
+    "art": true,
+    "environment": true,
+    "font": true,
+    "gui": true,
+    "unknown_pack": true,
+    "entity": true,
+    "beam": true,
+    "colormap": true,
+    "map": true,
+    "misc": true,
+    "footprint": true,
+    "mob": true,
+    "blocks": true,
+    "items": true,
+    "title": true,
+    "particles": true
+  }
+}
