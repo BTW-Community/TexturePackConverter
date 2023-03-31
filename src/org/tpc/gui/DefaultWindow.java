@@ -9,7 +9,15 @@ import org.tpc.*;
 
 public class DefaultWindow extends JFrame implements WindowListener {
 
+    public JPanel northPanel;
+    public JPanel southPanel;
+    public JPanel westPanel;
+    public JPanel centerPanel;
+    public JPanel eastPanel;
+    protected boolean debug = false;
+
     public DefaultWindow(String title, int width, int height, boolean visible){
+
         setPreferredSize(new Dimension(width, height));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle(title);
@@ -20,17 +28,21 @@ public class DefaultWindow extends JFrame implements WindowListener {
 
         // --- PANELS --- //
 
-        JPanel northPanel = new JPanel();
-        JPanel southPanel= new JPanel();
-        JPanel westPanel = new JPanel();
-        JPanel eastPanel = new JPanel();
-        JPanel centerPanel = new JPanel();
+        northPanel = new JPanel();
+        southPanel = new JPanel();
+        westPanel = new JPanel();
+        eastPanel = new JPanel();
+        centerPanel = new JPanel();
 
-        northPanel.setBackground(Color.red);
-        southPanel.setBackground(Color.green);
-        westPanel.setBackground(Color.yellow);
-        eastPanel.setBackground(Color.cyan);
-        centerPanel.setBackground(Color.blue);
+
+        if (debug)
+        {
+            northPanel.setBackground(Color.red);
+            southPanel.setBackground(Color.green);
+            westPanel.setBackground(Color.yellow);
+            eastPanel.setBackground(Color.cyan);
+            centerPanel.setBackground(Color.blue);
+        }
 
         northPanel.setPreferredSize(new Dimension(100, 25));
         southPanel.setPreferredSize(new Dimension(100, 25));
@@ -43,6 +55,8 @@ public class DefaultWindow extends JFrame implements WindowListener {
         add(westPanel, BorderLayout.WEST);
         add(eastPanel, BorderLayout.EAST);
         add(centerPanel, BorderLayout.CENTER);
+
+        centerPanel.setLayout(new BorderLayout(0,0));
 
         addContent();
 

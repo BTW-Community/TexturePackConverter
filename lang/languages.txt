@@ -1,0 +1,4 @@
+en_US=English (US)
+de_DE=Deutsch (Deutschland)
+#lu_LU=Lëtzebuergesch
+#fr_FR=Français (France)

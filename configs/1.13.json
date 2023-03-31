@@ -1,6 +1,6 @@
 {
   "configs": [
-    "vanilla", "btw", "deco"
+    "vanilla"
   ],
   "options": {
     "option.cleanTMP": false,
@@ -27,11 +27,5 @@
     "items": true,
     "title": true,
     "particles": true
-  },
-  "btw": {
-    "test": false
-  },
-  "deco": {
-    "deco_test": true
   }
 }

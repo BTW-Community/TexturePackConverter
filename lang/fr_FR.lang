@@ -1,0 +1,14 @@
+menu.file=Fichier
+menu.console=Afficher la console
+menu.lang=Changer la langue
+menu.exit=Quitter
+
+menu.help=Aide
+menu.readme=Ouvrir le fichier README
+menu.updates=Rechercher les mises à jour
+menu.about=À propos de TPC
+
+title.console=Console
+log.startup=Ouvrir la console au démarrage
+
+title.about=À propos de TPC

@@ -1,0 +1,66 @@
+#Window Titles
+title.options=Exportoptionen
+title.console=Konsolenprotokoll
+title.update=Updates werden gesucht
+title.about=Über TPC
+
+#Menu
+menu.file=Datei
+menu.console=Konsolenprotokoll anzeigen
+menu.lang=Sprache ändern
+menu.appearance=Aussehen ändern
+menu.exit=Beenden
+
+menu.appearance.dark=Dunkler Modus
+menu.appearance.light=Heller Modus
+
+menu.help=Hilfe
+menu.readme=README öffnen
+menu.guide=Hilfe
+menu.updates=Nach Updates suchen
+menu.github=Repo auf Github öffnen
+menu.about=Über TPC
+
+#Main Window
+main.input=Importieren als
+main.input.mapping=Eingabemapping auswählen
+main.input.open=Öffnen
+
+main.output=Exportieren als
+main.output.mapping=Ausgabemapping auswählen
+main.output.save=Speichern unter
+
+main.options=Optionen
+main.convert=Konvertieren
+
+#Options Window
+options.toggle=Alle Aktivieren/Deaktivieren
+
+#Console Log Window
+log.startup=Konsole beim Start öffnen
+
+#Update Window
+update.check=Suche nach Updates
+update.found=Neue Version gefunden
+update.uptodate=Auf dem neuesten Stand
+update.download=Updates herrunterladen
+update.startup=Nach Updates beim Start suchen
+
+#Dialogs
+dialog.yes=Ja
+dialog.cancel=Abbrechen
+
+dialog.file.input.title=ZIP-Eingabedatei
+dialog.file.input=Keine Datei ausgewählt!
+
+dialog.file.notfound=Ausgewählte ZIP-Datei kann nicht gefunden werden!
+dialog.file.nozip=Ausgewählte Datei ist keine ZIP-Datei!
+
+dialog.file.output.title=ZIP-Ausgabedatei
+dialog.file.output=Keine Ausgabedatei ausgewählt!
+
+dialog.file.override.title=Überschreiben?
+dialog.file.override=Ausgabedatei existiert bereits. Datei überschreiben?
+
+dialog.mapping.title=Fortsetzen?
+dialog.mapping=Eingabe- und Ausgabe-Mappings sind gleich. Fortsetzen?

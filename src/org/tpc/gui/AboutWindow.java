@@ -1,9 +1,12 @@
 package org.tpc.gui;
 
-public class AboutWindow extends DefaultWindow {
+import org.tpc.Language;
+import org.tpc.Main;
+import org.tpc.Version;
 
-    public AboutWindow() {
-        super("About", 400, 600, false);
-        setLocationRelativeTo(null);
-    }
+import javax.swing.*;
+import java.awt.*;
+
+public class AboutWindow  {
+
 }

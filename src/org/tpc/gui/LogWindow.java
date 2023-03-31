@@ -1,5 +1,7 @@
 package org.tpc.gui;
 
+import org.tpc.Language;
+import org.tpc.Main;
 import org.tpc.Settings;
 
 import javax.swing.*;
@@ -11,10 +13,15 @@ import java.io.IOException;
 public class LogWindow extends DefaultWindow {
 
     public static JTextPane taLog;
-
+    public static JCheckBox openOnStart;
     public LogWindow(){
-        super("Console Log", 600, 300, false);
+        super(Language.getString("title.console"), 600, 300, false);
         setBackground(Color.BLACK);
+        setLocation(50,100);
+    }
+
+    @Override
+    protected void addContent() {
 
         JPanel contentPane = new JPanel();contentPane.setLayout(new BorderLayout());
         contentPane.setBackground(Color.BLACK);
@@ -32,26 +39,23 @@ public class LogWindow extends DefaultWindow {
 
         contentPane.add(spPane);
 
-        JCheckBox openOnStart = new JCheckBox("Open Console On Startup", Settings.shouldOpenLogOnStartUp());
+        openOnStart = new JCheckBox(Language.getString("log.startup"), Main.settings.shouldOpenLogOnStartUp());
         openOnStart.setForeground(Color.WHITE);
         openOnStart.setBackground(Color.BLACK);
         openOnStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                /*
-                try {
-                    Settings.setOpenLogOnStartUp(openOnStart.isSelected());
-                } catch (IOException | NoSuchFieldException | SecurityException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
 
-                 */
+                try {
+                    Main.settings.setOpenLogOnStartUp(openOnStart.isSelected());
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                } catch (NoSuchFieldException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
         contentPane.add(openOnStart, BorderLayout.SOUTH);
-
-        pack();
     }
 }

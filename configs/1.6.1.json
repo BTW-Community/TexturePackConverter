@@ -1,11 +1,11 @@
 {
   "configs": [
-    "vanilla", "btw", "deco"
+    "vanilla"
   ],
   "options": {
-    "option.cleanTMP": false,
-    "option.createZip": true
-  },
+  "option.cleanTMP": false,
+  "option.createZip": true
+},
   "vanilla": {
     "pack": true,
     "achievement": true,
@@ -27,11 +27,5 @@
     "items": true,
     "title": true,
     "particles": true
-  },
-  "btw": {
-    "test": false
-  },
-  "deco": {
-    "deco_test": true
   }
 }

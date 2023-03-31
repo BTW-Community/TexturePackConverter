@@ -1,0 +1,14 @@
+menu.file=Datei
+menu.console=Konsol weisen
+menu.lang=Sprooch änneren
+menu.exit=Zoumaachen
+
+menu.help=Hëllef
+menu.readme=README opmaachen
+menu.updates=No Updates sichen
+menu.about=Iwwer TPC
+
+title.console=Konsol
+log.startup=Konsole beim Start opmaachen
+
+title.about=Iwwer TPC

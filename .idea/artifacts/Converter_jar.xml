@@ -2,11 +2,15 @@
   <artifact type="jar" name="Converter:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Converter_jar</output-path>
     <root id="archive" name="Converter.jar">
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
-      </element>
       <element id="module-output" name="Converter" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../gson-2.10.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/formdev/flatlaf/3.0/flatlaf-3.0.jar" path-in-jar="/" />
+      <element id="directory" name="assets">
+        <element id="dir-copy" path="$PROJECT_DIR$/assets" />
+      </element>
+      <element id="directory" name="lang">
+        <element id="dir-copy" path="$PROJECT_DIR$/lang" />
+      </element>
     </root>
   </artifact>
 </component>

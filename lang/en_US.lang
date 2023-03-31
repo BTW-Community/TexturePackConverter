@@ -1,0 +1,72 @@
+# To Support a new Language copy this file
+# Rename the file to the new language eg "en_US.lang"
+# Replace the text after the '='
+# Add the new language to "languages.txt" eg "en_US=English (US)"
+# Line starting with a '#' are comments and will be ignored
+
+#Window Titles
+title.options=Export Options
+title.console=Console Log
+title.update=Checking for Updates
+title.about=About TPC
+
+#Menu
+menu.file=File
+menu.console=Show Console Log
+menu.lang=Change Language
+menu.appearance=Change Appearance
+menu.exit=Quit
+
+menu.appearance.dark=Dark Mode
+menu.appearance.light=Light Mode
+
+menu.help=Help
+menu.readme=Open README
+menu.guide=Help
+menu.updates=Check for Updates
+menu.github=Open Repo on Github
+menu.about=About TPC
+
+#Main Window
+main.input=Import As
+main.input.mapping=Choose Input Mapping
+main.input.open=Open
+
+main.output=Export As
+main.output.mapping=Choose Output Mapping
+main.output.save=Save As
+
+main.options=Options
+main.convert=Convert
+
+#Options Window
+options.toggle=Selected/De-Select All
+
+#Console Log Window
+log.startup=Open Console at Startup
+
+#Update Window
+update.check=Checking for Updates
+update.found=Update Found
+update.uptodate=Up to date
+update.download=Download Update
+update.startup=Check For Update On Startup
+
+#Dialogs
+dialog.yes=Yes
+dialog.cancel=Cancel
+
+dialog.file.input.title=Input Zip File
+dialog.file.input=No File selected!
+
+dialog.file.notfound=Can't find selected zip filw!
+dialog.file.nozip=Selected File isn't a zip file!
+
+dialog.file.output.title=Output Zip File
+dialog.file.output=No Output File selected!
+
+dialog.file.override.title=Override?
+dialog.file.override=Output File already exists. Override File?
+
+dialog.mapping.title=Continue?
+dialog.mapping=Input and Output Mappings are the same. Continue?
