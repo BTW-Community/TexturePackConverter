@@ -1,7 +1,8 @@
 # 🖌 TexturePackConverter
 A little jar that lets you convert Minecraft Texture and Resource Packs
 
-![image](https://user-images.githubusercontent.com/25046819/221387116-077eb151-7f65-4d87-9d32-08519d459f2c.png)
+![image](https://user-images.githubusercontent.com/25046819/228991869-ff3019f6-389a-4268-8a58-e5144f7fac25.png)
+![image](https://user-images.githubusercontent.com/25046819/228992128-bfcd82dd-2dc3-4945-9a33-399d1276e432.png)
 
 ## 🗒 Features
 
@@ -27,3 +28,6 @@ This [guide](https://www.github.com/BTW-Community/TexturePackConverter/blob/main
 ## Dependencies
 - [Gson 2.10.1](https://github.com/google/gson)
 - [FlatLaf 3.0](https://github.com/JFormDesigner/FlatLaf)
+
+## Licence
+[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
