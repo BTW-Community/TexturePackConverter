@@ -11,6 +11,7 @@ import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +24,7 @@ public class OptionsWindow extends DefaultWindow {
     public static HashMap<String, JButton> enableMap;
     ArrayList<JCheckBox> optionBoxes;
     HashMap<String, ArrayList<JCheckBox>> hashMap;
-    HashMap<String, Boolean> toggle;
+    //HashMap<String, Boolean> toggle;
 
     JButton enableButton;
 
@@ -55,11 +56,11 @@ public class OptionsWindow extends DefaultWindow {
         tabs = new JTabbedPane();
         hashMap = new HashMap<>();
         enableMap = new HashMap<>();
-        toggle = new HashMap<>();
+        //toggle = new HashMap<>();
 
         for (JsonElement conf : configs) {
 
-            JPanel tabContent = new JPanel(new BorderLayout(0,0));
+            JPanel tabContent = new JPanel(new BorderLayout(0,10));
 
             JPanel panel = new JPanel();
             panel.setLayout(new GridLayout(0,2));
@@ -67,16 +68,11 @@ public class OptionsWindow extends DefaultWindow {
             String configStr = conf.getAsString();
 
             JPanel enablePanel = new JPanel();
-            enablePanel.setPreferredSize(new Dimension(100,50));
+            enablePanel.setPreferredSize(new Dimension(100, 30));
 
             enableButton = new JButton();
             enableButton.setText(Language.getString("options.toggle"));
             enableButton.addActionListener(e -> enableOptions());
-
-//            JCheckBox enableCheckbox = new JCheckBox();
-//            enableCheckbox.setText(Language.getString("options.toggle"));
-//            enableCheckbox.setSelected(true);
-//            enableCheckbox.addActionListener(e -> enableOptions());
 
             enableMap.put(configStr, enableButton);
 
@@ -89,12 +85,15 @@ public class OptionsWindow extends DefaultWindow {
             for(Map.Entry entry : map.entrySet())
             {
                 JCheckBox checkBox = new JCheckBox();
-                checkBox.setSize(new Dimension(100,25));
+                checkBox.setSize(new Dimension(100,30));
                 checkBox.setHorizontalAlignment(JCheckBox.LEFT);
                 checkBox.setText(entry.getKey().toString());
+                if (checkBox.getText().equalsIgnoreCase("options.cleanTMP")) checkBox.setToolTipText("options.cleanTMP.tooltip");
+                else if (checkBox.getText().equalsIgnoreCase("options.createZip")) checkBox.setToolTipText("options.createZip.tooltip");
                 JsonPrimitive primitive = (JsonPrimitive) entry.getValue();
                 checkBox.setSelected(primitive.getAsBoolean());
 
+                checkBox.addActionListener(e -> onOptionChanged(checkBox,configStr, entry.getKey().toString()));
                 panel.add(checkBox);
                 optionBoxes.add(checkBox);
             }
@@ -103,7 +102,7 @@ public class OptionsWindow extends DefaultWindow {
             tabContent.add(enablePanel, BorderLayout.SOUTH);
             tabs.addTab(configStr, tabContent);
             hashMap.put(configStr, optionBoxes);
-            toggle.put(configStr, false);
+            //toggle.put(configStr, false);
         }
 
         centerPanel.add(tabs, BorderLayout.CENTER);
@@ -116,14 +115,28 @@ public class OptionsWindow extends DefaultWindow {
         for(Map.Entry entry : mapOptions.entrySet())
         {
             JCheckBox checkBox = new JCheckBox();
-            checkBox.setText(entry.getKey().toString());
+            String optionName = entry.getKey().toString();
+            System.out.println(optionName);
+            checkBox.setText(Language.getString(optionName));
             JsonPrimitive primitive = (JsonPrimitive) entry.getValue();
             checkBox.setSelected(primitive.getAsBoolean());
 
+            checkBox.addActionListener(e -> onOptionChanged(checkBox, "options", entry.getKey().toString()));
             bottomPanel.add(checkBox);
         }
 
         centerPanel.add(bottomPanel, BorderLayout.SOUTH);
+    }
+
+    private void onOptionChanged(JCheckBox checkBox,String confString, String option) {
+        boolean boo = checkBox.isSelected();
+        try {
+            JsonHelper.setOptions(MainWindow.config, confString, option, boo);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void enableOptions() {
@@ -132,23 +145,20 @@ public class OptionsWindow extends DefaultWindow {
         String tabName = tabs.getTitleAt(index);
         ArrayList<JCheckBox> tab = hashMap.get(tabName);
 
-        if (!toggle.get(tabName))
+        for(JCheckBox box : tab)
         {
-            for(JCheckBox box : tab)
-            {
-                box.setSelected(false);
+            box.setSelected(!box.isSelected());
+
+            //write Json
+            boolean boo = box.isSelected();
+            try {
+                JsonHelper.setOptions(MainWindow.config, tabName, box.getText(), boo);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (NoSuchFieldException e) {
+                throw new RuntimeException(e);
             }
 
-            toggle.replace(tabName, true);
-        }
-        else if (toggle.get(tabName))
-        {
-            for(JCheckBox box : tab)
-            {
-                box.setSelected(true);
-            }
-
-            toggle.replace(tabName, false);
         }
     }
 

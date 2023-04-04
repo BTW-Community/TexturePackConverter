@@ -1,10 +1,12 @@
 {
   "currentLanguage": "en_US",
   "darkmode": true,
-  "startUp_openLog": false,
-  "startUp_checkUpdate": true,
+  "startUp_openLog": true,
+  "startUp_checkUpdate": false,
   "files_input": [
-    "H:\\DATA\\Modding\\ConverterOld\\Greatwood Continuation WIP_for_1.14.zip"
+    "H:\\DATA\\Modding\\Converter\\Greatwood Continuation WIP_for_1.14.zip"
   ],
-  "files_output": []
+  "files_output": [
+    "H:\\DATA\\Modding\\Converter\\intelij\\Converter\\temp\\export"
+  ]
 }

@@ -3,6 +3,7 @@ package org.tpc;
 import org.tpc.gui.LogWindow;
 import org.tpc.gui.MainWindow;
 import org.tpc.gui.OptionsWindow;
+import org.tpc.gui.UpdateWindow;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -66,14 +67,39 @@ public class Language {
         Main.logWindow.setTitle(getString("title.console"));
         LogWindow.openOnStart.setText(getString("log.startup"));
 
-        Main.optionsWindow.setTitle(getString("title.options"));
-
-        for(Map.Entry entry : OptionsWindow.enableMap.entrySet())
+        if (Main.optionsWindow != null)
         {
-            JButton button = (JButton) entry.getValue();
-            button.setText(Language.getString("options.toggle"));
+            Main.optionsWindow.setTitle(getString("title.options"));
+
+            for(Map.Entry entry : OptionsWindow.enableMap.entrySet())
+            {
+                JButton button = (JButton) entry.getValue();
+                button.setText(Language.getString("options.toggle"));
+            }
         }
 
+        if(Main.updateWindow != null)
+        {
+            Main.updateWindow.setTitle(getString("title.update"));
+
+            UpdateWindow.button.setText(getString("update.download"));
+            UpdateWindow.openOnStart.setText(getString("update.startup"));
+
+            int updateStatus = UpdateWindow.updateStatus;
+
+            if (updateStatus == UpdateWindow.UPTODATE)
+            {
+                UpdateWindow.label.setText(getString("✔ " + getString("update.uptodate")));
+            }
+            else if (updateStatus == UpdateWindow.FOUND)
+            {
+                UpdateWindow.label.setText(getString("update.found") + ": " + UpdateWindow.versionFound);
+            }
+            else {
+                UpdateWindow.label.setText(getString("update.check"));
+            }
+
+        }
 
     }
 

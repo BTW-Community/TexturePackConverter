@@ -110,4 +110,4 @@ Make sure that the config file has the same name as your input mapping!
 
 `"configs"` holds all the mapping names (Needs to match with the mapping JSON, see above)
 
-`"vanilla"` is a list of options (Name needs to match with the config above). Add to here if you want to be able to enable or disable the conversion of this directory in the Options window. If it is not present here it is true by default and can't be toggled in the Options Window.
+`"vanilla"` is a list of options (Name needs to match with the config above). Add to here if you want to be able to enable or disable the conversion of this directory in the org.tpc.Options window. If it is not present here it is true by default and can't be toggled in the org.tpc.Options Window.

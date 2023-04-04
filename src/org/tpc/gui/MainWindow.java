@@ -29,17 +29,17 @@ public class MainWindow extends DefaultWindow {
     private JPanel midPanel;
 
     public static JComboBox inputMapping;
-    private JComboBox inputLocation;
+    public static JComboBox inputLocation;
 
     public static JComboBox outputMapping;
-    private JComboBox outputLocation;
+    public static JComboBox outputLocation;
 
     public static JButton optionsBtn;
     public static JButton convertBtn;
     public static File inputMap;
     public static File outputMap;
-    public static File input;
-    public static File output;
+    public static File inputFile;
+    public static File outputFile;
 
     public static JPanel inputPanel;
     public static String inputText;
@@ -49,7 +49,6 @@ public class MainWindow extends DefaultWindow {
     public static JButton openButton;
     public static JButton saveButton;
 
-
     public MainWindow() {
         super("Texture Pack Converter", 600,300,false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,9 +57,12 @@ public class MainWindow extends DefaultWindow {
 
     @Override
     public void windowOpened(WindowEvent e) {
-        Main.logWindow.setVisible(Main.settings.shouldOpenLogOnStartUp());
         Main.bootWindow.dispose();
+
+        Main.logWindow.setVisible(Main.settings.shouldOpenLogOnStartUp());
+        if (Main.settings.shouldCheckUpdateOnStartUp()) new UpdateWindow();
     }
+
 
     @Override
     protected void addContent() {
@@ -174,6 +176,14 @@ public class MainWindow extends DefaultWindow {
         outputLocation = new JComboBox();
         outputLocation.setPreferredSize(new Dimension(350, 25));
         outputLocation.setEditable(true);
+        if (Main.settings.getFiles_output().size() > 0)
+        {
+            for(String output : Main.settings.getFiles_output())
+            {
+                outputLocation.addItem(output);
+            }
+        }
+        outputLocation.setSelectedItem(null);
 
         saveButton = new JButton("...");
         saveButton.setBounds(0,0, 75, 25);
@@ -239,6 +249,7 @@ public class MainWindow extends DefaultWindow {
         centerPanel.add(bottomPanel, BorderLayout.SOUTH);
         centerPanel.add(midPanel, BorderLayout.CENTER);
     }
+
     public static JMenu fileMenu;
     public static JMenu helpMenu;
     public static JMenuItem consoleItem;
@@ -276,10 +287,14 @@ public class MainWindow extends DefaultWindow {
 
         updateItem = new JMenuItem(Language.getString("menu.updates") + "...");
         updateItem.addActionListener(e -> openUpdateWindow());
+        setIcon(updateItem, "update");
+
         readmeItem = new JMenuItem(Language.getString("menu.readme") + "...");
         readmeItem.addActionListener(e -> Utils.openSite("https://github.com/BTW-Community/TexturePackConverter/blob/main/README.md"));
+
         aboutItem = new JMenuItem(Language.getString("menu.about") + "...");
-        //aboutItem.addActionListener(e -> Main.aboutWindow.setVisible(true));
+        aboutItem.addActionListener(e -> Main.aboutWindow.setVisible(true));
+
         helpItem = new JMenuItem(Language.getString("menu.guide") + "...");
         setIcon(helpItem, "help");
 
@@ -394,6 +409,7 @@ public class MainWindow extends DefaultWindow {
         setIcon(consoleItem, "log");
         setIcon(exitItem, "exit");
         setIcon(helpItem, "help");
+        setIcon(updateItem, "update");
         setIcon(githubItem, "github");
 
         for(JMenuItem item : languages) {
@@ -413,7 +429,7 @@ public class MainWindow extends DefaultWindow {
     }
 
     private void openUpdateWindow() {
-        new UpdateWindow();
+        Main.updateWindow = new UpdateWindow();
         updateItem.setEnabled(false);
     }
 
@@ -451,32 +467,25 @@ public class MainWindow extends DefaultWindow {
 
         if (response == JFileChooser.APPROVE_OPTION)
         {
-            File inputFile = new File(fileChooser.getSelectedFile().getAbsolutePath());
+            inputFile = new File(fileChooser.getSelectedFile().getAbsolutePath());
             inputLocation.setSelectedItem(inputFile);
 
             try {
-                if (Main.settings.addInputFile(inputFile.getAbsolutePath()))
-                {
-                    inputLocation.insertItemAt(inputFile, 0);
-                    if (this.inputLocation.getItemCount() > 5)
-                    {
-
-                        this.inputLocation.removeItemAt(5);
-                    }
-
-                }
+                addInputFile(inputFile);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            /*
-            try {
-                int format = Utils.getPackFormat(inputFile.getAbsolutePath());
-                MainWindow.inputMapping.setSelectedItem(Utils.formats.get(format));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            */
+        }
+    }
 
+    private void addInputFile(File inputFile) throws IOException {
+        if (Main.settings.addInputFile(inputFile.getAbsolutePath()))
+        {
+            inputLocation.insertItemAt(inputFile, 0);
+            if (this.inputLocation.getItemCount() > 5)
+            {
+                this.inputLocation.removeItemAt(5);
+            }
 
         }
     }
@@ -485,32 +494,29 @@ public class MainWindow extends DefaultWindow {
 
         String loc = "./";
 
-        File input;
-
-        if (!inputLocation.getSelectedItem().toString().isEmpty())
-        {
-            input = new File (inputLocation.getSelectedItem().toString());
-
-            if (input.getParentFile().exists())
-            {
-                loc = input.getParentFile().getAbsolutePath();
-            }
-        }
-
         JFileChooser fileChooser = new JFileChooser(loc);
-        //FileNameExtensionFilter filter = new FileNameExtensionFilter("Zip Files", "zip");
-        //fileChooser.setFileFilter(filter);
 
         int response = fileChooser.showSaveDialog(null);
 
         if (response == JFileChooser.APPROVE_OPTION)
         {
-            File outputFile = new File(fileChooser.getSelectedFile().getAbsolutePath());
-            if ( !outputFile.getName().endsWith(".zip") )
-            {
-                outputFile = new File(fileChooser.getSelectedFile().getAbsolutePath() + ".zip");
+            outputFile = new File(fileChooser.getSelectedFile().getAbsolutePath());
+            try {
+                addOutputFile(outputFile);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
             outputLocation.setSelectedItem(outputFile);
+        }
+    }
+    private void addOutputFile(File file) throws IOException {
+        if (Main.settings.addOutputFile(file.getAbsolutePath()))
+        {
+            outputLocation.insertItemAt(file, 0);
+            if (this.outputLocation.getItemCount() > 5)
+            {
+                this.outputLocation.removeItemAt(5);
+            }
         }
     }
 
@@ -574,8 +580,7 @@ public class MainWindow extends DefaultWindow {
             }
         }
     }
-    private void showMessageDialog(String msg, String title)
-    {
+    private void showMessageDialog(String msg, String title) {
         JOptionPane.showMessageDialog(this,
                 msg,
                 title,
@@ -613,7 +618,8 @@ public class MainWindow extends DefaultWindow {
     }
 
     private void openConvertWindow() {
-       // new ConvertWindow();
+       Main.convertWindow = new ConvertWindow();
+       Main.mainWindow.convertBtn.setEnabled(false);
     }
 
     public ArrayList<String> listFilesForFolder(final File folder) {

@@ -8,6 +8,8 @@ A little jar that lets you convert Minecraft Texture and Resource Packs
 
 - Convert Texture and Resource Packs
 - Rotate Textures
+- Mirror Textures
+- Tint Textures
 - Dark and Light Mode
 - Language Support 
   - English
@@ -23,7 +25,8 @@ This [guide](https://www.github.com/BTW-Community/TexturePackConverter/blob/main
 
 - `LogWindow.java`: [jMC2Obj](https://github.com/jmc2obj/j-mc-2-obj)
 - `Utils.isObfuscated()`: [BTW:CE](https://github.com/BTW-Community/BTW-Public)
-- `Utils.rotate()`: [GeeksForGeeks](https://www.geeksforgeeks.org/java-program-to-rotate-an-image/)
+- `Utils.rotateImage()`: [GeeksForGeeks](https://www.geeksforgeeks.org/java-program-to-rotate-an-image/)
+- `Utils.mirrorImage()`: [GeeksForGeeks](https://www.geeksforgeeks.org/image-processing-in-java-creating-a-mirror-image/)
 
 ## Dependencies
 - [Gson 2.10.1](https://github.com/google/gson)

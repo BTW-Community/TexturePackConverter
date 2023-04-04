@@ -1,7 +1,7 @@
 # Help Guide
 
 - [Usage](#usage)
-- [Export Options](#export-options)
+- [Export org.tpc.Options](#export-options)
 - [Mapping Files](#mapping-files)
 - [Config Files](#config-files)
 - [Settings File](#settings-file)
@@ -28,12 +28,12 @@
 5. Choose the Mappings for the MC version of your Texture or Resource Pack in the left dropdown menu.
 6. Under `Export As` select which Version you want to convert to.
 7. Choose the Location and Name of the converted Pack by pasting the path in the designated field or use the `...` button to open a dialog to do this for you. If you just enter a name without a specified location it will be saved to the temp folder.
-8. If you want to change any of the [Export Options](#export-options), click the `Options` button to do so.
+8. If you want to change any of the [Export org.tpc.Options](#export-options), click the `org.tpc.Options` button to do so.
 9. Finally press `Convert`
 10. Once the conversion has finished you can click the `Open` button to open the directory you had chosen to save to.
 11. Have fun!
 
-## Export Options
+## Export org.tpc.Options
 
 ## Mapping Files
 

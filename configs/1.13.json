@@ -1,31 +1,35 @@
 {
   "configs": [
-    "vanilla"
+    "vanilla",
+    "btw"
   ],
   "options": {
-    "option.cleanTMP": false,
-    "option.createZip": true
+    "options.cleanTMP": true,
+    "options.createZip": true
   },
   "vanilla": {
-    "pack": true,
-    "achievement": true,
-    "armor": true,
-    "entityArmor": true,
-    "art": true,
-    "environment": true,
-    "font": true,
-    "gui": true,
-    "unknown_pack": true,
-    "entity": true,
-    "beam": true,
-    "colormap": true,
-    "map": true,
-    "misc": true,
-    "footprint": true,
-    "mob": true,
-    "blocks": true,
-    "items": true,
-    "title": true,
-    "particles": true
+    "pack": false,
+    "achievement": false,
+    "armor": false,
+    "entityArmor": false,
+    "art": false,
+    "environment": false,
+    "font": false,
+    "gui": false,
+    "unknown_pack": false,
+    "entity": false,
+    "beam": false,
+    "colormap": false,
+    "map": false,
+    "misc": false,
+    "footprint": false,
+    "mob": false,
+    "blocks": false,
+    "items": false,
+    "title": false,
+    "particles": false
+  },
+  "btw": {
+    "test": true
   }
 }

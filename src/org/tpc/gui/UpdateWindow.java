@@ -17,6 +17,7 @@ import java.net.URL;
 public class UpdateWindow extends DefaultWindow {
     public static JButton button;
     public static JLabel label;
+    public static JCheckBox openOnStart;
     public UpdateWindow() {
         super(Language.getString("title.update"), 300, 175, true);
         setLocationRelativeTo(null);
@@ -50,7 +51,7 @@ public class UpdateWindow extends DefaultWindow {
         button.setVerticalAlignment(JButton.CENTER);
 //		button.setBounds(75, 100, 150, 25);
 
-        JCheckBox openOnStart = new JCheckBox(Language.getString("update.startup"), Main.settings.shouldCheckUpdateOnStartUp());
+        openOnStart = new JCheckBox(Language.getString("update.startup"), Main.settings.shouldCheckUpdateOnStartUp());
         openOnStart.setHorizontalAlignment(JCheckBox.CENTER);
         openOnStart.addActionListener(e -> {
             try {
@@ -76,31 +77,36 @@ public class UpdateWindow extends DefaultWindow {
     public void windowOpened(WindowEvent e) {
         check();
     }
+
+    public static int updateStatus;
+    public static int UPTODATE = 1;
+    public static int FOUND = 2;
+    public static String versionFound;
     public void check()
     {
 
         Log.msg("Update: Checking...");
 
-        String version = checkForUpdate();
+        versionFound = checkForUpdate();
 
-        if (version.length() > 0)
+        if (versionFound.length() > 0)
         {
-            label.setText(Language.getString("update.found") + ": " + version);
+            updateStatus = FOUND;
+
+            label.setText(Language.getString("update.found") + ": " + versionFound);
             button.setEnabled(true);
 
-            Log.msg("Update: Found " + version);
+            Log.msg("Update: Found " + versionFound);
         }
         else
         {
+            updateStatus = UPTODATE;
+
             label.setText("✔ " + Language.getString("update.uptodate"));
 
             Log.msg("Update: No update found");
         }
     }
-
-
-
-
 
     private String checkForUpdate(){
 

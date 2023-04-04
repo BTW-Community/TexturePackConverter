@@ -4,17 +4,16 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import com.google.gson.*;
 import org.tpc.gui.*;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Enumeration;
-import java.util.HashMap;
+import java.net.Inet4Address;
+import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
@@ -25,9 +24,12 @@ public class Main {
     public static MainWindow mainWindow;
     public static BootWindow bootWindow;
     public static OptionsWindow optionsWindow;
+    public static ConvertWindow convertWindow;
     public static Language lang;
     public static ImageIcon icon;
     public static Settings settings;
+
+    public static UpdateWindow updateWindow;
 
 
     public static void main(String[] args) throws IOException {
@@ -43,8 +45,9 @@ public class Main {
 
         Log.msg("Texture Pack Converter " + Version.getCurrentVersion(true));
 
-        //aboutWindow = new AboutWindow();
         mainWindow = new MainWindow();
+
+        aboutWindow = new AboutWindow();
 
         bootWindow = new BootWindow();
     }

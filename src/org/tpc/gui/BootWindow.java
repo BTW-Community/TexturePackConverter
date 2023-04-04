@@ -62,15 +62,15 @@ public class BootWindow extends JFrame implements WindowListener {
         imgLabel.setVerticalAlignment(JLabel.CENTER);
 
         JLabel labelV = new JLabel("Version: " + Version.getCurrentVersion(false));
-        labelV.setFont(new Font("Dialog",  Font.PLAIN, 12));
+        labelV.setFont(new Font("Segoe UI",  Font.PLAIN, 12));
         labelV.setVerticalAlignment(JLabel.CENTER);
 
         JLabel labelD = new JLabel("Attribution-NonCommercial-ShareAlike 4.0 International");
-        labelD.setFont(new Font("Dialog",  Font.PLAIN, 10));
+        labelD.setFont(new Font("Segoe UI",  Font.PLAIN, 10));
         labelD.setVerticalAlignment(JLabel.CENTER);
 
         JLabel labelD2 = new JLabel("(CC BY-NC-SA 4.0)");
-        labelD2.setFont(new Font("Dialog",  Font.PLAIN, 10));
+        labelD2.setFont(new Font("Segoe UI",  Font.PLAIN, 10));
         labelD2.setVerticalAlignment(JLabel.CENTER);
 
         centerPanel.add(imgLabel, BorderLayout.CENTER);

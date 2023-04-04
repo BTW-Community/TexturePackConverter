@@ -2,7 +2,7 @@
 title.options=Exportoptionen
 title.console=Konsolenprotokoll
 title.update=Updates werden gesucht
-title.about=Über TPC
+title.about=Über
 
 #Menu
 menu.file=Datei
@@ -33,8 +33,10 @@ main.output.save=Speichern unter
 main.options=Optionen
 main.convert=Konvertieren
 
-#Options Window
-options.toggle=Alle Aktivieren/Deaktivieren
+#org.tpc.Options Window
+options.toggle=Auswahl ein-/ausblenden
+options.cleanTMP=
+options.createZip=
 
 #Console Log Window
 log.startup=Konsole beim Start öffnen

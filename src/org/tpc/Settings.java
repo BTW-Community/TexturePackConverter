@@ -103,12 +103,25 @@ public class Settings {
         return files_output;
     }
 
-    public void addOutputFile(String file) throws IOException {
-        this.files_output.add(file);
+    public boolean addOutputFile(String file) throws IOException {
+        if (!this.files_output.contains(file))
+        {
+            this.files_output.add(0, file);
 
-        writeJSON(this);
+            if (this.files_output.size() > 5)
+            {
+                this.files_output.remove(files_output.size() - 1);
+            }
 
-        //Log.msg("Settings: \"Most Recent Zip\" set to: " + this.file_mostRecent );
+            writeJSON(this);
+
+            Log.msg("Settings: Added new file to: \"files_output\"." );
+
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public boolean shouldOpenLogOnStartUp() {

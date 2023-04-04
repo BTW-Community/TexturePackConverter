@@ -18,6 +18,7 @@ public class LogWindow extends DefaultWindow {
         super(Language.getString("title.console"), 600, 300, false);
         setBackground(Color.BLACK);
         setLocation(50,100);
+        setResizable(true);
     }
 
     @Override

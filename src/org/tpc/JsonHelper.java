@@ -4,6 +4,8 @@ import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class JsonHelper {
 
@@ -33,11 +35,23 @@ public class JsonHelper {
 
         return fileObject;
     }
-    public static JsonElement getOption(String file) throws FileNotFoundException {
-        File input = new File(file);
-        JsonElement fileElement = JsonParser.parseReader(new FileReader(input));
 
-        return fileElement;
+    public static void setOptions(File configFile, String conf, String option, boolean boo) throws IOException, NoSuchFieldException {
+        JsonObject options = getOptions(configFile);
+        JsonObject vanilla = options.get(conf).getAsJsonObject();
+
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
+        Gson gson = builder.create();
+
+        JsonElement element = new JsonPrimitive(boo);
+        vanilla.asMap().put(option, element);
+
+        FileWriter writer = new FileWriter(configFile);
+        writer.write(gson.toJson(options));
+        writer.close();
+
+        Log.msg("Option: \"" + option + "\" in: " + conf + " set to: " + boo);
     }
 
 }

@@ -6,9 +6,10 @@
 
 #Window Titles
 title.options=Export Options
+title.convert=Converting
 title.console=Console Log
 title.update=Checking for Updates
-title.about=About TPC
+title.about=About
 
 #Menu
 menu.file=File
@@ -39,8 +40,12 @@ main.output.save=Save As
 main.options=Options
 main.convert=Convert
 
-#Options Window
-options.toggle=Selected/De-Select All
+#org.tpc.Options Window
+options.toggle=Toggle Selection
+options.cleanTMP=Clean /temp/ folder
+options.cleanTMP.tooltip=Empties the temp folder before Converting
+options.createZip=Create Zip
+options.createZip.tooltip=Generate a zip file from the converted directory
 
 #Console Log Window
 log.startup=Open Console at Startup

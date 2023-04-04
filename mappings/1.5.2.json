@@ -4,31 +4,31 @@
   "desc": "Mappings for 1.5.2",
   "vanilla": {
     "directory": {
-      "pack" : "./",
-      "achievement": "achievement/",
-      "armor": "armor/",
-      "entityArmor": "armor/",
-      "art": "art/",
-      "environment": "environment/",
-      "font": "font/",
-      "gui": "gui/",
-      "unknown_pack": "gui/",
-      "entity": "item/",
-      "beam": "misc/",
-      "colormap": "misc/",
-      "map": "misc/",
-      "misc": "misc/",
-      "footprint": "misc/",
-      "mob": "mob/",
-      "blocks": "textures/blocks/",
-      "items": "textures/items/",
-      "title": "title/",
-      "particles": "gui/"
+      "pack" : "/",
+      "achievement": "/achievement/",
+      "armor": "/armor/",
+      "entityArmor": "/armor/",
+      "art": "/art/",
+      "environment": "/environment/",
+      "font": "/font/",
+      "gui": "/gui/",
+      "unknown_pack": "/gui/",
+      "entity": "/item/",
+      "beam": "/misc/",
+      "colormap": "/misc/",
+      "map": "/misc/",
+      "misc": "/misc/",
+      "footprint": "/misc/",
+      "mob": "/mob/",
+      "blocks": "/textures/blocks/",
+      "items": "/textures/items/",
+      "title": "/title/",
+      "particles": "/gui/"
     },
     "files": {
       "pack" : [
-        ["pack", ".png"],
-        ["pack", ".txt"]
+        ["pack"],
+        ["pack", "format=txt"]
       ],
       "achievement": [
         ["bg"],
@@ -647,6 +647,19 @@
       ],
       "particles": [
         ["particles"]
+      ]
+    }
+  },
+  "btw": {
+    "directory": {
+      "test": "/textures/blocks/"
+    },
+    "files": {
+      "test": [
+        ["stone"],
+        ["fcBlockStone_1", "tint=999999"],
+        ["fcBlockStone_2", "tint=777777"],
+        ["fcBlockPlanks_blood", "tint=E82100"]
       ]
     }
   }

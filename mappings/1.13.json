@@ -3,36 +3,36 @@
   "pack_format": 4,
   "desc": "Mappings for 1.13 (Resource Pack Format 4)",
   "vanilla": {
-    "folders": {
-      "pack" : "./",
-      "achievement": "assets/minecraft/textures/achievement/",
-      "armor": "assets/minecraft/textures/models/armor/",
-      "entityArmor": "assets/minecraft/textures/entity/",
-      "art": "assets/minecraft/textures/painting/",
-      "environment": "assets/minecraft/textures/environment/",
-      "font": "assets/minecraft/textures/font/",
-      "gui": "gui/",
-      "unknown_pack": "assets/minecraft/textures/gui/",
-      "entity": "item/",
-      "beam": "misc/",
-      "colormap": "misc/",
-      "map": "misc/",
-      "misc": "misc/",
-      "footprint": "misc/",
-      "mob": "mob/",
-      "blocks": "assets/minecraft/textures/block/",
-      "items": "assets/minecraft/textures/item/",
-      "title": "title/",
-      "particles": "gui/"
+    "directory": {
+      "pack" : "/",
+      "achievement": "/assets/minecraft/textures/gui/achievement/",
+      "armor": "/assets/minecraft/textures/models/armor/",
+      "entityArmor": "/assets/minecraft/textures/entity/",
+      "art": "/assets/minecraft/textures/painting/",
+      "environment": "/assets/minecraft/textures/environment/",
+      "font": "/assets/minecraft/textures/font/",
+      "gui": "/gui/",
+      "unknown_pack": "/assets/minecraft/textures/gui/",
+      "entity": "/item/",
+      "beam": "/misc/",
+      "colormap": "/misc/",
+      "map": "/misc/",
+      "misc": "/misc/",
+      "footprint": "/misc/",
+      "mob": "/mob/",
+      "blocks": "/assets/minecraft/textures/block/",
+      "items": "/assets/minecraft/textures/item/",
+      "title": "/assets/minecraft/textures/gui/title/",
+      "particles": "/gui/"
     },
-    "textures": {
+    "files": {
       "pack" : [
         ["pack"],
-        ["pack", ".txt"]
+        ["pack", "format=txt"]
       ],
       "achievement": [
         ["achievement_background"],
-        ["achievement_icons"]
+        ["icons"]
       ],
       "armor": [
         ["chainmail_layer_1"],
@@ -636,17 +636,32 @@
         ["glowstone_dust"]
       ],
       "title": [
-        ["bg/panorama0"],
-        ["bg/panorama1"],
-        ["bg/panorama2"],
-        ["bg/panorama3"],
-        ["bg/panorama4"],
-        ["bg/panorama5"],
+        ["background/panorama_0"],
+        ["background/panorama_1"],
+        ["background/panorama_2"],
+        ["background/panorama_3"],
+        ["background/panorama_4"],
+        ["background/panorama_5"],
         ["mclogo"],
         ["mojang"]
       ],
       "particles": [
         ["particles"]
+      ]
+    }
+  },
+  "btw":
+  {
+    "directory":
+    {
+      "test": "/assets/minecraft/textures/block/"
+    },
+    "files": {
+      "test": [
+        ["stone"],
+        ["stone"],
+        ["stone"],
+        ["birch_planks"]
       ]
     }
   }
