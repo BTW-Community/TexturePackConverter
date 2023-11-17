@@ -32,7 +32,7 @@
 11. Have fun!
 
 ## Formatting
-Check out the [Formatting Guide](../blob/master/FORMATTING.md) on how to format config and mapping JSON files.
+Check out the [Formatting Guide](FORMATTING.md) on how to format config and mapping JSON files.
 
 ## Settings File
 The Settings JSON file keeps track of various settings that can be changed with TPC.
