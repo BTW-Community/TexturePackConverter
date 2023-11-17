@@ -1,14 +1,81 @@
+# To Support a new Language copy this file
+# Rename the file to the new language eg "en_US.lang"
+# Replace the text after the '='
+# Add the new language to "languages.txt" eg "en_US=English (US)"
+# Line starting with a '#' are comments and will be ignored
+
+#Window Titles
+title.options=Options d'exportation
+title.convert=Conversion en cours
+title.console=Journal de la console
+title.update=Recherche de Mises à Jour
+title.about=À Propos
+
+#Menu
 menu.file=Fichier
-menu.console=Afficher la console
-menu.lang=Changer la langue
+menu.console=Afficher le Journal de la Console
+menu.lang=Changer la Langue
+menu.appearance=Changer le Thème
 menu.exit=Quitter
 
+menu.appearance.dark=Mode Sombre
+menu.appearance.light=Mode Clair
+
 menu.help=Aide
-menu.readme=Ouvrir le fichier README
-menu.updates=Rechercher les mises à jour
-menu.about=À propos de TPC
+menu.readme=Ouvrir le README
+menu.guide=Aide
+menu.updates=Rechercher des Mises à Jour
+menu.github=Ouvrir le dépot sur Github
+menu.about=À Propos de TPC
 
-title.console=Console
-log.startup=Ouvrir la console au démarrage
+#Main Window
+main.input=Importer sous
+main.input.mapping=Choisir le Format d'Entrée
+main.input.open=Ouvrir
 
-title.about=À propos de TPC
+main.output=Exporter Sous
+main.output.mapping=Choisir le Format de Sortie
+main.output.save=Enregistrer Sous
+
+main.options=Options
+main.convert=Convertir
+
+#Options Window
+options.toggle=Permuter la Sélection
+options.cleanTMP=Nettoyer le dossier /temp/
+options.cleanTMP.tooltip=Vide le dossier /temp/ avant la conversion
+options.createZip=Créer un Zip
+options.createZip.tooltip=Génère un fichier Zip à partir du dossier converti
+options.experimental=Expérimental
+
+#Convert Window
+converter.done=Terminé!
+
+#Console Log Window
+log.startup=Ouvrir la Console au Lancement
+
+#Update Window
+update.check=Recherche de Mises à Jour
+update.found=Mise à Jour Trouvée
+update.uptodate=À Jour
+update.download=Télécharger la Mise à Jour
+update.startup=Rechercher les Mises à Jour au Lancement
+
+#Dialogs
+dialog.yes=Oui
+dialog.cancel=Annuler
+
+dialog.file.input.title=Fichier Zip d'Entrée
+dialog.file.input=Aucun Fichier Sélectionné !
+
+dialog.file.notfound=Impossible de trouver le fichier sélectionné !
+dialog.file.nozip=Le format du fichier sélectionné n'est pas Zip !
+
+dialog.file.output.title=Fichier Zip de Sortie
+dialog.file.output=Aucun Fichier de Sortie Sélectionné !
+
+dialog.file.override.title=Écraser ?
+dialog.file.override=Le Fichier de Sortie existe déjà. Écraser le fichier ?
+
+dialog.mapping.title=Continuer ?
+dialog.mapping=Les Formats d'Entrée et de Sortie sont identiques. Continuer ?

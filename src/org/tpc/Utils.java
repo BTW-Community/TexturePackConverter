@@ -51,7 +51,7 @@ public class Utils {
     {
         ImageIcon icon;
         BufferedImage image;
-        InputStream is = cl.getClass().getResourceAsStream(src);
+        InputStream is = cl.getResourceAsStream(src);
         try {
             image = ImageIO.read(is);
         } catch (IOException e) {
@@ -296,7 +296,14 @@ public class Utils {
         return img;
     }
 
+    public static BufferedImage overlayImage(BufferedImage img, BufferedImage overlayImg) {
+        Graphics2D g = img.createGraphics();
+        g.drawImage(overlayImg, 0, 0, null);
 
+        g.dispose();
+
+        return img;
+    }
 
     /*
     Code to modify image

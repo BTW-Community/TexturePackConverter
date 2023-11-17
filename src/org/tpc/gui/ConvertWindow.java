@@ -12,6 +12,7 @@ import java.util.List;
 
 public class ConvertWindow extends DefaultWindow implements ConvertWindowListener {
     public static JLabel label;
+    public static JProgressBar progressBar;
     public static JPanel topPanel;
     public static JPanel bottomPanel;
     public static JButton cancelBtn;
@@ -38,6 +39,10 @@ public class ConvertWindow extends DefaultWindow implements ConvertWindowListene
         label = new JLabel();
         label.setText("Converting...");
 
+        progressBar = new JProgressBar(0, 100);
+        progressBar.setPreferredSize(new Dimension(80, 30));
+        progressBar.setStringPainted(true);
+
         cancelBtn = new JButton();
         cancelBtn.setText("Cancel");
         cancelBtn.addActionListener(e -> cancel());
@@ -46,6 +51,7 @@ public class ConvertWindow extends DefaultWindow implements ConvertWindowListene
         centerPanel.add(bottomPanel, BorderLayout.SOUTH);
 
         topPanel.add(label);
+        //topPanel.add(progressBar);
         bottomPanel.add(cancelBtn);
     }
 
@@ -65,7 +71,7 @@ public class ConvertWindow extends DefaultWindow implements ConvertWindowListene
 
     private void open(){
         try {
-            Desktop.getDesktop().open(new File("temp/"));
+            Desktop.getDesktop().open(new File(MainWindow.outputLocation.getSelectedItem().toString()));
             this.dispose();
         } catch (IOException e) {
             throw new RuntimeException(e);

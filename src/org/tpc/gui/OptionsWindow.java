@@ -46,12 +46,12 @@ public class OptionsWindow extends DefaultWindow {
         JsonObject options = null;
         try {
             configObj = JsonHelper.getOptions(config);
-            configs = configObj.get("configs").getAsJsonArray();
-            options = configObj.get("options").getAsJsonObject();
-
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
+
+        configs = configObj.get("configs").getAsJsonArray();
+        options = configObj.get("options").getAsJsonObject();
 
         tabs = new JTabbedPane();
         hashMap = new HashMap<>();
@@ -66,6 +66,13 @@ public class OptionsWindow extends DefaultWindow {
             panel.setLayout(new GridLayout(0,2));
             panel.setBorder(new BevelBorder(BevelBorder.LOWERED));
             String configStr = conf.getAsString();
+
+            JsonObject mapObj = null;
+            try {
+                mapObj = JsonHelper.getMappings("mappings/" + MainWindow.inputMap.getName(), configStr);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
 
             JPanel enablePanel = new JPanel();
             enablePanel.setPreferredSize(new Dimension(100, 30));
@@ -88,19 +95,30 @@ public class OptionsWindow extends DefaultWindow {
                 checkBox.setSize(new Dimension(100,30));
                 checkBox.setHorizontalAlignment(JCheckBox.LEFT);
                 checkBox.setText(entry.getKey().toString());
-                if (checkBox.getText().equalsIgnoreCase("options.cleanTMP")) checkBox.setToolTipText("options.cleanTMP.tooltip");
-                else if (checkBox.getText().equalsIgnoreCase("options.createZip")) checkBox.setToolTipText("options.createZip.tooltip");
+
+                if (checkBox.getText().equalsIgnoreCase("options.cleanTMP")) checkBox.setText(Language.getString("options.cleanTMP"));
+                else if (checkBox.getText().equalsIgnoreCase("options.createZip")) checkBox.setText(Language.getString("options.createZip"));
                 JsonPrimitive primitive = (JsonPrimitive) entry.getValue();
                 checkBox.setSelected(primitive.getAsBoolean());
 
-                checkBox.addActionListener(e -> onOptionChanged(checkBox,configStr, entry.getKey().toString()));
+                checkBox.addActionListener(e -> onOptionChanged(checkBox, configStr, entry.getKey().toString()));
                 panel.add(checkBox);
                 optionBoxes.add(checkBox);
             }
 
             tabContent.add(panel, BorderLayout.CENTER);
             tabContent.add(enablePanel, BorderLayout.SOUTH);
-            tabs.addTab(configStr, tabContent);
+
+            if (mapObj.has("experimental") && mapObj.get("experimental").getAsBoolean())
+            {
+                String tabName = "⚠ " + configStr + " (" + Language.getString("options.experimental") + ") ⚠";
+
+                tabs.addTab(tabName, tabContent);
+
+
+            }
+            else tabs.addTab(configStr, tabContent);
+
             hashMap.put(configStr, optionBoxes);
             //toggle.put(configStr, false);
         }

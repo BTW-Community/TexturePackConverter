@@ -5,7 +5,7 @@
   ],
   "options": {
     "options.cleanTMP": true,
-    "options.createZip": true
+    "options.createZip": false
   },
   "vanilla": {
     "pack": false,
@@ -30,6 +30,12 @@
     "particles": false
   },
   "btw": {
-    "test": true
+    "blocks": true,
+    "animation": false,
+    "entity": true,
+    "gui": true,
+    "items": true,
+    "armorModels": true,
+    "painting": true
   }
 }

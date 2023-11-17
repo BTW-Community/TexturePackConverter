@@ -125,6 +125,10 @@ public class MainWindow extends DefaultWindow {
             optionsBtn.setEnabled(true);
 
         });
+
+        inputMap = new File ("mappings/" + inputMapping.getSelectedItem().toString() + ".json");
+        Log.msg("Input mappings \"" + inputMap.getName() + "\" selected.");
+
         //dropdownInput.setBorder(new EmptyBorder(margin, margin, margin, margin));
 
         String selectedFile = new File("mappings/" + inputMapping.getSelectedItem().toString() + ".json").getPath();
@@ -171,7 +175,10 @@ public class MainWindow extends DefaultWindow {
             outputMap = new File ("mappings/" + outputMapping.getSelectedItem().toString() + ".json");
             Log.msg("Output mappings \"" + outputMap.getName() + "\" selected.");
         });
-        outputMapping.setSelectedItem("1.5.2");
+        outputMapping.setSelectedItem(0);
+
+        outputMap = new File ("mappings/" + outputMapping.getSelectedItem().toString() + ".json");
+        Log.msg("Output mappings \"" + outputMap.getName() + "\" selected.");
 
         outputLocation = new JComboBox();
         outputLocation.setPreferredSize(new Dimension(350, 25));
@@ -562,7 +569,7 @@ public class MainWindow extends DefaultWindow {
                                     new Object[] {Language.getString("dialog.yes"), Language.getString("dialog.cancel")},
                                     Language.getString("dialog.cancel"));
 
-                            Log.msg("Override Response: " + override);
+                            Log.debug("Override Response: " + override, true);
 
                             if (override == 0) //Yes
                             {
@@ -613,7 +620,7 @@ public class MainWindow extends DefaultWindow {
             }
         }
         else{
-            openConvertWindow();
+            openConvertWindow(); //??
         }
     }
 
@@ -634,5 +641,17 @@ public class MainWindow extends DefaultWindow {
             }
         }
         return list;
+    }
+
+    public static File getInputMap() {
+        return inputMap;
+    }
+
+    public static File getOutputMap() {
+        return outputMap;
+    }
+
+    public static File getConfigFile() {
+        return config;
     }
 }

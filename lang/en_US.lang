@@ -40,12 +40,17 @@ main.output.save=Save As
 main.options=Options
 main.convert=Convert
 
-#org.tpc.Options Window
+#Options Window
 options.toggle=Toggle Selection
 options.cleanTMP=Clean /temp/ folder
 options.cleanTMP.tooltip=Empties the temp folder before Converting
 options.createZip=Create Zip
 options.createZip.tooltip=Generate a zip file from the converted directory
+options.experimental=Experimental
+
+#Convert Window
+converter.done=Done!
+
 
 #Console Log Window
 log.startup=Open Console at Startup
@@ -64,7 +69,7 @@ dialog.cancel=Cancel
 dialog.file.input.title=Input Zip File
 dialog.file.input=No File selected!
 
-dialog.file.notfound=Can't find selected zip filw!
+dialog.file.notfound=Can't find selected zip file!
 dialog.file.nozip=Selected File isn't a zip file!
 
 dialog.file.output.title=Output Zip File

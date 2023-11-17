@@ -29,6 +29,15 @@ public class JsonHelper {
         return locObj;
     }
 
+    public static JsonObject getMappings(String file,String map) throws FileNotFoundException {
+        File input = new File(file);
+        JsonElement fileElement = JsonParser.parseReader(new FileReader(input));
+        JsonObject fileObject = fileElement.getAsJsonObject();
+        JsonObject infoObj = fileObject.get(map).getAsJsonObject();
+
+        return infoObj;
+    }
+
     public static JsonObject getOptions(File file) throws FileNotFoundException {
         JsonElement fileElement = JsonParser.parseReader(new FileReader(file));
         JsonObject fileObject = fileElement.getAsJsonObject();

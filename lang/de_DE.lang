@@ -1,5 +1,6 @@
 #Window Titles
 title.options=Exportoptionen
+title.convert=Konvertieren
 title.console=Konsolenprotokoll
 title.update=Updates werden gesucht
 title.about=Über
@@ -33,10 +34,16 @@ main.output.save=Speichern unter
 main.options=Optionen
 main.convert=Konvertieren
 
-#org.tpc.Options Window
+#Options Window
 options.toggle=Auswahl ein-/ausblenden
-options.cleanTMP=
-options.createZip=
+options.cleanTMP=/temp/ Ordner Inhalt löschen
+options.cleanTMP.tooltip=Löscht den Inhalt des temp Ordners
+options.createZip=Zip Erstellen
+options.createZip.tooltip=Erstelle eine zip datei vom konvertierten ordner
+options.experimental=Experimentell
+
+#Convert Window
+converter.done=Fertig!
 
 #Console Log Window
 log.startup=Konsole beim Start öffnen

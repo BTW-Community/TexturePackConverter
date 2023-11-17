@@ -18,6 +18,14 @@ public class Log {
         }
     }
 
+    public static void msg(String msg, Color color) {
+        try {
+            log(msg, color);
+        } catch (BadLocationException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void success(String msg) {
         try {
             log(msg, Color.GREEN);
@@ -51,10 +59,10 @@ public class Log {
         }
     }
 
-    public static void warning(String warning, boolean outputToScreen) {
+    public static void debug(String debug, boolean outputToScreen) {
         try {
-            warning = "WARNING: " + warning;
-            log(warning, Color.YELLOW, outputToScreen);
+            debug = "DEBUG: " + debug;
+            log(debug, Color.CYAN, outputToScreen);
         } catch (BadLocationException e) {
             throw new RuntimeException(e);
         }
