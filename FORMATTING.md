@@ -45,7 +45,7 @@ Make sure that the config file has the same name as your input mapping!
         },
         "files": {
           "blocks" : [
-            ["oak_column", "oak_planks", "rotate=90"],
+            ["oak_column", "texture=oak_planks", "rotate=90"],
             ["blood_wood_planks","texture=oak_planks", "tint=aa1e00"]
             ["axle_powered", "format=png.mcmeta"]
           ],
@@ -117,13 +117,14 @@ Make sure that the config file has the same name as your input mapping!
 `"mob"` has the file names. Needs to match the **_directory_** name.
 
 `["textureName", "texture=altTexture", "overlay=overlayTexture", "tint=d76635", "rotate=0", "mirror=false", "format=png"]` describes the texture file. 
-* `textureName`: has to the texture name (may include a parent directory seperated by a `/`)
-* `texture`:  alternative texture to use if textureName cannot be found.
-* `tint`: adds a color multiplier in hex format. Alternatively the default 16 minecraft colors can be accessed via writing the color as a string like: `lime` or `CYAN`.
-* `rotate`: rotates the image in deg.
-* `mirror`: mirrors the image.
-* `overlay`: overlays a texture ontop the textureName or altTexture image.
-* `format`: if not specified the default format is png, any format is allowed. Txt and png.mcmeta can be converted into the other.
+* String `textureName`: has to the texture name (may include a parent directory seperated by a `/`)
+* String `texture`:  alternative texture to use if textureName cannot be found.
+* Integer `tint`: adds a color multiplier in hex format. Alternatively the default 16 minecraft colors can be accessed via writing the color as a string like: `lime` or `CYAN`.
+* Boolean `invert`: adds a color multiplier in hex format. Alternatively the default 16 minecraft colors can be accessed via writing the color as a string like: `lime` or `CYAN`.
+* Integer `rotate`: rotates the image in deg.
+* Boolean `mirror`: mirrors the image.
+* String `overlay`: overlays a texture ontop the textureName or altTexture image.
+* String `format`: if not specified the default format is png, any format is allowed. Txt and png.mcmeta can be converted into the other.
 
 The modifiers `tint`,`rotate`,`mirror`,`overlay` are executed in that order, tough the order doesn't matter in the mappings.
 

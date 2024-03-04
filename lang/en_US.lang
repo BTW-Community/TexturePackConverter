@@ -50,6 +50,7 @@ options.experimental=Experimental
 
 #Convert Window
 converter.done=Done!
+converter.error=An Error occurred! See Console Log.
 
 
 #Console Log Window
@@ -66,11 +67,12 @@ update.startup=Check For Update On Startup
 dialog.yes=Yes
 dialog.cancel=Cancel
 
-dialog.file.input.title=Input Zip File
+dialog.file.input.title=Input File
 dialog.file.input=No File selected!
 
-dialog.file.notfound=Can't find selected zip file!
-dialog.file.nozip=Selected File isn't a zip file!
+dialog.file.notfound=Can't find selected zip file or directory!
+dialog.file.notzip=Selected File isn't a zip file! Continue?
+dialog.file.notdirectory=Selected File isn't a directory!
 
 dialog.file.output.title=Output Zip File
 dialog.file.output=No Output File selected!

@@ -22,7 +22,7 @@
           └── ...
 ```
 3. Run `TPC_1.0.0.jar`
-4. Under `Import As` select a Texture or Resource Pack you want to convert by pressing the `...` to navigate to your Zip File. Alternatively you can also just paste in the path in the designated field. The last 5 selected Zip Files are available in the dropdown.
+4. Under `Import As` select a Texture or Resource Pack you want to convert by pressing the `...` to navigate to your Zip File or Directory. Alternatively you can also just paste in the path of a directory or Zip file in the designated field. The last 5 selected Zip files or directories are available in the dropdown.
 5. Choose the Mappings for the MC version of your Texture or Resource Pack in the left dropdown menu.
 6. Under `Export As` select which Version you want to convert to.
 7. Choose the Location and Name of the converted Pack by pasting the path in the designated field or use the `...` button to open a dialog to do this for you. If you just enter a name without a specified location it will be saved to the temp folder.

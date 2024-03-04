@@ -283,13 +283,19 @@ public class Utils {
         for (int col = 0; col < width; col++) {
             for (int row = 0; row < height; row++) {
                 //get the color and split int RGB
-                Color color = new Color(img.getRGB(col, row));
+                Color color = new Color(img.getRGB(col, row), true);
+
+
                 int r = color.getRed();
                 int g = color.getGreen();
                 int b = color.getBlue();
+                int a = color.getAlpha();
 
-                //Multiply tint color with pixel color
-                img.setRGB(col, row, new Color((red*r)/255, (green*g)/255, (blue*b)/255).getRGB());
+                if (a != 255)
+                {
+                    //Multiply tint color with pixel color
+                    img.setRGB(col, row, new Color((red*r)/255, (green*g)/255, (blue*b)/255).getRGB());
+                }
             }
         }
 
@@ -299,9 +305,22 @@ public class Utils {
     public static BufferedImage overlayImage(BufferedImage img, BufferedImage overlayImg) {
         Graphics2D g = img.createGraphics();
         g.drawImage(overlayImg, 0, 0, null);
-
         g.dispose();
+        return img;
+    }
 
+    //CREDIT: https://stackoverflow.com/questions/8662349/convert-negative-image-to-positive
+    public static BufferedImage invertColors(BufferedImage img) {
+        for (int x = 0; x < img.getWidth(); x++) {
+            for (int y = 0; y < img.getHeight(); y++) {
+                int rgba = img.getRGB(x, y);
+                Color col = new Color(rgba, true);
+                col = new Color(255 - col.getRed(),
+                        255 - col.getGreen(),
+                        255 - col.getBlue());
+                img.setRGB(x, y, col.getRGB());
+            }
+        }
         return img;
     }
 

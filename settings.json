@@ -1,10 +1,20 @@
 {
   "currentLanguage": "en_US",
-  "darkmode": true,
-  "startUp_openLog": true,
-  "startUp_checkUpdate": true,
+  "darkmode": false,
+  "startUp_openLog": false,
+  "startUp_checkUpdate": false,
   "files_input": [
+    "C:\\Users\\Flynn\\Downloads\\Sweet.Transit.v0.4.18",
+    "C:\\Users\\Flynn\\Downloads\\better-visibility-for-btw-1-2",
+    "C:\\Users\\Flynn\\Downloads\\better-visibility-for-btw-1-2.zip",
+    "C:\\Users\\Flynn\\Downloads\\Bare_Bones_1.8.9.zip",
+    "C:\\Users\\Flynn\\Downloads\\BTW-CE-2.1.4"
   ],
   "files_output": [
+    "H:\\DATA\\Modding\\Converter\\intelij\\export\\elle\\elle_2.0",
+    "H:\\DATA\\Modding\\Converter\\intelij\\export\\BareBones",
+    "H:\\DATA\\Modding\\Converter\\intelij\\Converter\\temp\\btw-1.6",
+    "H:\\DATA\\Modding\\Converter\\intelij\\Converter\\temp\\dawn_mix_2-0",
+    "H:\\DATA\\Modding\\Converter\\intelij\\Converter\\temp\\greatwood-1.5"
   ]
 }

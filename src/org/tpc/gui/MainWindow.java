@@ -126,9 +126,6 @@ public class MainWindow extends DefaultWindow {
 
         });
 
-        inputMap = new File ("mappings/" + inputMapping.getSelectedItem().toString() + ".json");
-        Log.msg("Input mappings \"" + inputMap.getName() + "\" selected.");
-
         //dropdownInput.setBorder(new EmptyBorder(margin, margin, margin, margin));
 
         String selectedFile = new File("mappings/" + inputMapping.getSelectedItem().toString() + ".json").getPath();
@@ -175,10 +172,6 @@ public class MainWindow extends DefaultWindow {
             outputMap = new File ("mappings/" + outputMapping.getSelectedItem().toString() + ".json");
             Log.msg("Output mappings \"" + outputMap.getName() + "\" selected.");
         });
-        outputMapping.setSelectedItem(0);
-
-        outputMap = new File ("mappings/" + outputMapping.getSelectedItem().toString() + ".json");
-        Log.msg("Output mappings \"" + outputMap.getName() + "\" selected.");
 
         outputLocation = new JComboBox();
         outputLocation.setPreferredSize(new Dimension(350, 25));
@@ -228,10 +221,16 @@ public class MainWindow extends DefaultWindow {
         convertBtn.addActionListener(e -> checkFiles());
         btnPanel.add(convertBtn, BorderLayout.EAST);
 
-        inputMap = new File(inputMapping.getItemAt(0).toString());
+        inputMapping.setSelectedIndex(0);
+//        inputMap = new File ("mappings/" + inputMapping.getSelectedItem().toString() + ".json");
+//        Log.msg("Input mappings \"" + inputMap.getName() + "\" selected.");
 
-        config = new File("configs/" + inputMap + ".json");
-        Log.msg("Loaded Config: " + config.getPath());
+        outputMapping.setSelectedIndex(0);
+//        outputMap = new File ("mappings/" + outputMapping.getSelectedItem().toString() + ".json");
+//        Log.msg("Output mappings \"" + outputMap.getName() + "\" selected.");
+
+//        config = new File("configs/" + inputMap + ".json");
+//        Log.msg("Loaded Config: " + config.getPath());
 
 
     }
@@ -467,8 +466,11 @@ public class MainWindow extends DefaultWindow {
 
     private void openDialog() {
         JFileChooser fileChooser = new JFileChooser("./");
-    	FileNameExtensionFilter filter = new FileNameExtensionFilter("Zip Files", "zip");
-    	fileChooser.setFileFilter(filter);
+        //TODO: add back when unzipping is fixed
+    	//FileNameExtensionFilter filter = new FileNameExtensionFilter("Zip Files", "zip");
+    	//fileChooser.setFileFilter(filter);
+        //fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
         int response = fileChooser.showOpenDialog(null);
 
@@ -485,17 +487,7 @@ public class MainWindow extends DefaultWindow {
         }
     }
 
-    private void addInputFile(File inputFile) throws IOException {
-        if (Main.settings.addInputFile(inputFile.getAbsolutePath()))
-        {
-            inputLocation.insertItemAt(inputFile, 0);
-            if (this.inputLocation.getItemCount() > 5)
-            {
-                this.inputLocation.removeItemAt(5);
-            }
 
-        }
-    }
 
     private void saveDialog() {
 
@@ -514,6 +506,17 @@ public class MainWindow extends DefaultWindow {
                 throw new RuntimeException(e);
             }
             outputLocation.setSelectedItem(outputFile);
+        }
+    }
+    private void addInputFile(File inputFile) throws IOException {
+        if (Main.settings.addInputFile(inputFile.getAbsolutePath()))
+        {
+            inputLocation.insertItemAt(inputFile, 0);
+            if (this.inputLocation.getItemCount() > 5)
+            {
+                this.inputLocation.removeItemAt(5);
+            }
+
         }
     }
     private void addOutputFile(File file) throws IOException {
@@ -547,7 +550,31 @@ public class MainWindow extends DefaultWindow {
             else {
                 if (!inputFile.getName().contains(".zip"))
                 {
-                    showMessageDialog(Language.getString("dialog.file.nozip"), Language.getString("dialog.file.input.title"));
+                    //showMessageDialog(Language.getString("dialog.file.nozip"), Language.getString("dialog.file.input.title"));
+
+                    if (inputFile.isDirectory())
+                    {
+                        //Override name of output zip?
+                        int override = JOptionPane.showOptionDialog(this,
+                                Language.getString("dialog.file.notzip"),
+                                Language.getString("dialog.file.input.title"),
+                                JOptionPane.OK_CANCEL_OPTION,
+                                JOptionPane.WARNING_MESSAGE,
+                                null,
+                                new Object[] {Language.getString("dialog.yes"), Language.getString("dialog.cancel")},
+                                Language.getString("dialog.cancel"));
+
+                        Log.debug("Override Response: " + override, true);
+
+                        if (override == 0) //Yes
+                        {
+                            checkMappings();
+                        }
+                    }
+                    else {
+                        //fail
+                        showMessageDialog(Language.getString("dialog.file.notdirectory"), Language.getString("dialog.file.input.title"));
+                    }
                 }
                 else {
 
@@ -575,8 +602,6 @@ public class MainWindow extends DefaultWindow {
                             {
                                 checkMappings();
                             }
-
-
                         }
                         else {
                             //success
@@ -616,10 +641,24 @@ public class MainWindow extends DefaultWindow {
 
             if (response == 0) //Yes
             {
+                inputFile = new File(inputLocation.getSelectedItem().toString());
+                try {
+                    addInputFile(inputFile);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
                 openConvertWindow();
             }
         }
         else{
+            inputFile = new File(inputLocation.getSelectedItem().toString());
+            try {
+                addInputFile(inputFile);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
             openConvertWindow(); //??
         }
     }

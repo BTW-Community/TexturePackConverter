@@ -44,6 +44,7 @@ options.experimental=Experimentell
 
 #Convert Window
 converter.done=Fertig!
+converter.error=Fehler! Siehe Konsolenprotokoll.
 
 #Console Log Window
 log.startup=Konsole beim Start öffnen
@@ -59,11 +60,12 @@ update.startup=Nach Updates beim Start suchen
 dialog.yes=Ja
 dialog.cancel=Abbrechen
 
-dialog.file.input.title=ZIP-Eingabedatei
+dialog.file.input.title=Eingabedatei
 dialog.file.input=Keine Datei ausgewählt!
 
-dialog.file.notfound=Ausgewählte ZIP-Datei kann nicht gefunden werden!
-dialog.file.nozip=Ausgewählte Datei ist keine ZIP-Datei!
+dialog.file.notfound=Ausgewählte ZIP-Datei oder Ordner kann nicht gefunden werden!
+dialog.file.notzip=Ausgewählte Datei ist keine ZIP-Datei! Fortsetzen?
+dialog.file.notdirectory=Ausgewählte Datei ist kein Ordner!
 
 dialog.file.output.title=ZIP-Ausgabedatei
 dialog.file.output=Keine Ausgabedatei ausgewählt!

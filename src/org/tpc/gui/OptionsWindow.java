@@ -3,6 +3,7 @@ package org.tpc.gui;
 import com.google.gson.*;
 import org.tpc.JsonHelper;
 import org.tpc.Language;
+import org.tpc.Log;
 import org.tpc.Main;
 
 import javax.swing.*;
@@ -96,14 +97,18 @@ public class OptionsWindow extends DefaultWindow {
                 checkBox.setHorizontalAlignment(JCheckBox.LEFT);
                 checkBox.setText(entry.getKey().toString());
 
-                if (checkBox.getText().equalsIgnoreCase("options.cleanTMP")) checkBox.setText(Language.getString("options.cleanTMP"));
-                else if (checkBox.getText().equalsIgnoreCase("options.createZip")) checkBox.setText(Language.getString("options.createZip"));
+                //TODO: remove, when txt > png.mcmeta is fixed. Error with 0*2
+                if (checkBox.getText().equalsIgnoreCase("animation")){
+                    checkBox.setEnabled(false);
+                }
+
+
                 JsonPrimitive primitive = (JsonPrimitive) entry.getValue();
                 checkBox.setSelected(primitive.getAsBoolean());
-
                 checkBox.addActionListener(e -> onOptionChanged(checkBox, configStr, entry.getKey().toString()));
                 panel.add(checkBox);
                 optionBoxes.add(checkBox);
+
             }
 
             tabContent.add(panel, BorderLayout.CENTER);
@@ -134,13 +139,22 @@ public class OptionsWindow extends DefaultWindow {
         {
             JCheckBox checkBox = new JCheckBox();
             String optionName = entry.getKey().toString();
-            System.out.println(optionName);
+            //System.out.println(optionName);
             checkBox.setText(Language.getString(optionName));
             JsonPrimitive primitive = (JsonPrimitive) entry.getValue();
             checkBox.setSelected(primitive.getAsBoolean());
 
             checkBox.addActionListener(e -> onOptionChanged(checkBox, "options", entry.getKey().toString()));
             bottomPanel.add(checkBox);
+
+            if (optionName.equalsIgnoreCase("options.cleanTMP")) {
+                checkBox.setText(Language.getString("options.cleanTMP"));
+            }
+            if (optionName.equalsIgnoreCase("options.createZip")) {
+                checkBox.setText(Language.getString("options.createZip"));
+                checkBox.setSelected(false); //TODO: remove when zip is fixed
+                checkBox.setEnabled(false); //TODO: remove when zip is fixed
+            };
         }
 
         centerPanel.add(bottomPanel, BorderLayout.SOUTH);
@@ -165,18 +179,20 @@ public class OptionsWindow extends DefaultWindow {
 
         for(JCheckBox box : tab)
         {
-            box.setSelected(!box.isSelected());
+            if (box.isEnabled())
+            {
+                box.setSelected(!box.isSelected());
 
-            //write Json
-            boolean boo = box.isSelected();
-            try {
-                JsonHelper.setOptions(MainWindow.config, tabName, box.getText(), boo);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (NoSuchFieldException e) {
-                throw new RuntimeException(e);
+                //write Json
+                boolean boo = box.isSelected();
+                try {
+                    JsonHelper.setOptions(MainWindow.config, tabName, box.getText(), boo);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (NoSuchFieldException e) {
+                    throw new RuntimeException(e);
+                }
             }
-
         }
     }
 

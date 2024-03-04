@@ -1,5 +1,5 @@
 {
-  "mapping_version": "1.0.0",
+  "mapping_version": "1.1.0",
   "mapping_desc": "Mappings for 1.5.2 (Resource Pack Format 0)",
   "pack_format": 0,
   "vanilla": {
@@ -21,6 +21,7 @@
       "footprint": "/misc/",
       "mob": "/mob/",
       "blocks": "/textures/blocks/",
+      "animation": "/textures/blocks/",
       "items": "/textures/items/",
       "title": "/title/",
       "particles": "/gui/"
@@ -435,6 +436,9 @@
         ["workbench_side"],
         ["workbench_top"]
       ],
+      "animation": [
+        [""]
+      ],
       "items": [
         ["apple"],
         ["appleGold"],
@@ -663,6 +667,7 @@
       "animation": "/textures/blocks/",
       "entity": "/btwmodtex/",
       "gui": "/btwmodtex/",
+      "gui2": "/gui/",
       "items": "/textures/items/",
       "armorModels": "/btwmodtex/",
       "painting": "/btwmodtex/"
@@ -1214,27 +1219,18 @@
         ["fcOverlayUnfiredBrick_5"],
         ["fcOverlayUnfiredBrick_6"],
         ["fcOverlayUnfiredBrick_7"],
-        ["stone"],
-        ["stonebrick"],
-        ["stonebricksmooth"],
         ["stonebricksmooth_1"],
         ["stonebricksmooth_2"],
-        ["stonebricksmooth_carved"],
         ["stonebricksmooth_carved_1"],
         ["stonebricksmooth_carved_2"],
-        ["stonebricksmooth_cracked"],
         ["stonebricksmooth_cracked_1"],
         ["stonebricksmooth_cracked_2"],
-        ["stonebricksmooth_mossy"],
         ["stonebricksmooth_mossy_1"],
         ["stonebricksmooth_mossy_2"],
-        ["stoneMoss"],
         ["stoneMoss_1"],
         ["stoneMoss_2"],
-        ["stoneslab_side"],
         ["stoneslab_side_1"],
         ["stoneslab_side_2"],
-        ["stoneslab_top"],
         ["stoneslab_top_1"],
         ["stoneslab_top_2"],
         ["fcBlockGrassSparseLoose_side"],
@@ -1274,6 +1270,7 @@
         ["fcCowFamished"],
         ["fcCowStarving"],
         ["fc_mr_cow"],
+        ["cow_udder"],
         ["fcMooshroomFamished"],
         ["fcMooshroomStarving"],
         ["fc_mr_redcow"],
@@ -1303,12 +1300,14 @@
         ["fcGuiAnvilVanilla"],
         ["fcguiblockdisp"],
         ["fccauldron"],
-        ["fcGuiInv4"],
         ["fcHopper"],
         ["fcguiinfernal"],
         ["fcguipulley"],
         ["fcguianvil"],
         ["fcguitrading"]
+      ],
+      "gui2": [
+        ["trap"]
       ],
       "items": [
         ["fcItemAncientProphecy"],

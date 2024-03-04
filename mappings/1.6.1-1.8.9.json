@@ -1,5 +1,5 @@
 {
-  "mapping_version": "1.0.0",
+  "mapping_version": "1.1.0",
   "mapping_desc": "Mappings for 1.6.1 - 1.8.9 (Resource Pack Format 1)",
   "pack_format": 1,
   "vanilla": {
@@ -21,6 +21,7 @@
       "footprint": "/assets/minecraft/textures/particle/",
       "mob": "/assets/minecraft/textures/entity/",
       "blocks": "/assets/minecraft/textures/blocks/",
+      "animation": "/assets/minecraft/textures/blocks/",
       "items": "/assets/minecraft/textures/items/",
       "title": "/assets/minecraft/textures/gui/title/",
       "particles": "/assets/minecraft/textures/particle/"
@@ -28,7 +29,7 @@
     "files": {
       "pack": [
         ["pack"],
-        ["pack","format=txt"]
+        ["pack","format=mcmeta"]
       ],
       "achievement": [
         ["achievement_background"],
@@ -435,6 +436,9 @@
         ["crafting_table_side"],
         ["crafting_table_top"]
       ],
+      "animation": [
+        [""]
+      ],
       "items": [
         ["apple"],
         ["apple_golden"],
@@ -663,6 +667,7 @@
       "animation": "/assets/btw/textures/blocks/",
       "entity": "/assets/btw/textures/entity/",
       "gui": "/assets/btw/textures/gui/",
+      "gui2": "/assets/btw/textures/gui/",
       "items": "/assets/btw/textures/items/",
       "armorModels": "/assets/btw/textures/models/armor/",
       "painting": "/assets/btw/textures/painting/"
@@ -683,7 +688,7 @@
         ["wicker_basket"],
         ["wicker_basket_bottom"],
         ["wicker_basket_front"],
-        ["wicker_basket_open_top"],
+        ["wicker_basket_top_open"],
         ["wicker_basket_top"],
         ["bellows_bottom"],
         ["bellows_front"],
@@ -871,7 +876,7 @@
         ["oven_front"],
         ["oven_front_lit"],
         ["oven"],
-        ["oven"],
+        ["oven_top"],
         ["old_furnace_full_front", "texture=furnace_front"],
         ["old_furnace_full_front_lit", "texture=furnace_front_lit"],
         ["gearbox"],
@@ -887,7 +892,7 @@
         ["hamper"],
         ["hamper_bottom"],
         ["hamper_front"],
-        ["hamper_open_top"],
+        ["hamper_top_open"],
         ["hamper_top"],
         ["hand_crank_bottom"],
         ["hand_crank_shaft"],
@@ -1196,6 +1201,7 @@
         ["loose_snow_overlay_5"],
         ["loose_snow_overlay_6"],
         ["loose_snow_overlay_7"],
+        ["loose_snow_overlay_8"],
         ["loose_stone_brick_lava_overlay_strata_3"],
         ["loose_stone_brick_lava_overlay_strata_2"],
         ["loose_stone_brick_lava_overlay"],
@@ -1213,27 +1219,18 @@
         ["unfired_brick_overlay_5"],
         ["unfired_brick_overlay_6"],
         ["unfired_brick_overlay_7"],
-        ["stone"],
-        ["stonebrick"],
-        ["stonebricksmooth"],
         ["stonebricksmooth_1"],
         ["stonebricksmooth_2"],
-        ["stonebricksmooth_carved"],
         ["stonebricksmooth_carved_1"],
         ["stonebricksmooth_carved_2"],
-        ["stonebricksmooth_cracked"],
         ["stonebricksmooth_cracked_1"],
         ["stonebricksmooth_cracked_2"],
-        ["stonebricksmooth_mossy"],
         ["stonebricksmooth_mossy_1"],
         ["stonebricksmooth_mossy_2"],
-        ["stoneMoss"],
         ["stoneMoss_1"],
         ["stoneMoss_2"],
-        ["stoneslab_side"],
         ["stoneslab_side_1"],
         ["stoneslab_side_2"],
-        ["stoneslab_top"],
         ["stoneslab_top_1"],
         ["stoneslab_top_2"],
         ["loose_grass"],
@@ -1303,12 +1300,14 @@
         ["anvil"],
         ["block_dispenser"],
         ["cooking_vessel"],
-        ["hamper"],
         ["hopper"],
         ["infernal_enchanter"],
         ["pulley"],
         ["soulforge"],
         ["trading"]
+      ],
+      "gui2": [
+        ["hamper"]
       ],
       "items": [
         ["arcane_scroll"],

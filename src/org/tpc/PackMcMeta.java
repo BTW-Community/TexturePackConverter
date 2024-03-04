@@ -1,18 +1,16 @@
 package org.tpc;
 
-import java.io.*;
-import java.util.ArrayList;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class McMeta {
+import java.io.*;
 
-    Animation animation;
+public class PackMcMeta {
+    Pack pack;
 
-    public McMeta(Animation animation)
+    public PackMcMeta(Pack pack)
     {
-        this.animation = animation;
+        this.pack = pack;
     }
 
 
@@ -25,15 +23,6 @@ public class McMeta {
         writer.close();
     }
 
-    public static void writeJSON(PackMcMeta packmcmeta, String filename) throws IOException {
-        GsonBuilder builder = new GsonBuilder();
-        builder.setPrettyPrinting();
-        Gson gson = builder.create();
-        FileWriter writer = new FileWriter(filename);
-        writer.write(gson.toJson(packmcmeta));
-        writer.close();
-    }
-
     public static Settings readSettingsJSON(String jsonFile) throws FileNotFoundException {
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
@@ -43,14 +32,13 @@ public class McMeta {
         return settings;
     }
 
-    public static class Animation {
-        int frametime;
-        int[] frames;
-        public Animation(
-                int frametime,
-                int[] frames){
-            this.frametime = frametime;
-            this.frames = frames;
+    public static class Pack {
+        int pack_format;
+        String description;
+        public Pack(int pack_format,  String description)
+        {
+            this.pack_format = pack_format;
+            this.description = description;
         }
     }
 }

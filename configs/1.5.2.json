@@ -25,6 +25,7 @@
     "footprint": true,
     "mob": true,
     "blocks": true,
+    "animation": false,
     "items": true,
     "title": true,
     "particles": true
@@ -34,6 +35,7 @@
     "animation": false,
     "entity": true,
     "gui": true,
+    "gui2": true,
     "items": true,
     "armorModels": true,
     "painting": true

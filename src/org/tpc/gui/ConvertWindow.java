@@ -112,7 +112,6 @@ public class ConvertWindow extends DefaultWindow implements ConvertWindowListene
             Log.warning("Conversion cancelled by user!");
             this.dispose();
         }
-
     }
 
     @Override

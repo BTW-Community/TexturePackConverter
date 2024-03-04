@@ -50,6 +50,7 @@ options.experimental=Expérimental
 
 #Convert Window
 converter.done=Terminé!
+converter.error=Une erreur est survenue! Consultez la console pour plus de détails.
 
 #Console Log Window
 log.startup=Ouvrir la Console au Lancement
@@ -65,17 +66,18 @@ update.startup=Rechercher les Mises à Jour au Lancement
 dialog.yes=Oui
 dialog.cancel=Annuler
 
-dialog.file.input.title=Fichier Zip d'Entrée
-dialog.file.input=Aucun Fichier Sélectionné !
+dialog.file.input.title=Fichier d'Entrée
+dialog.file.input=Aucun Fichier Sélectionné!
 
-dialog.file.notfound=Impossible de trouver le fichier sélectionné !
-dialog.file.nozip=Le format du fichier sélectionné n'est pas Zip !
+dialog.file.notfound=Impossible de trouver le fichier sélectionné!
+dialog.file.notzip=Le format du fichier sélectionné n'est pas Zip! Continuer?
+dialog.file.notdirectory=Selected File isn't a directory!
 
 dialog.file.output.title=Fichier Zip de Sortie
-dialog.file.output=Aucun Fichier de Sortie Sélectionné !
+dialog.file.output=Aucun Fichier de Sortie Sélectionné!
 
-dialog.file.override.title=Écraser ?
-dialog.file.override=Le Fichier de Sortie existe déjà. Écraser le fichier ?
+dialog.file.override.title=Écraser?
+dialog.file.override=Le Fichier de Sortie existe déjà. Écraser le fichier?
 
-dialog.mapping.title=Continuer ?
-dialog.mapping=Les Formats d'Entrée et de Sortie sont identiques. Continuer ?
+dialog.mapping.title=Continuer?
+dialog.mapping=Les Formats d'Entrée et de Sortie sont identiques. Continuer?
