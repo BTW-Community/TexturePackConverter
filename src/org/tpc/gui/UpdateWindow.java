@@ -18,6 +18,10 @@ public class UpdateWindow extends DefaultWindow {
     public static JButton button;
     public static JLabel label;
     public static JCheckBox openOnStart;
+
+    private String latestAPI = "https://api.github.com/repos/TexturePackConverter/Deco-Addon-2/releases/latest";
+    private String latestURL = "https://github.com/BTW-Community/TexturePackConverter/releases/latest";
+
     public UpdateWindow() {
         super(Language.getString("title.update"), 300, 175, true);
         setLocationRelativeTo(null);
@@ -42,7 +46,6 @@ public class UpdateWindow extends DefaultWindow {
 //		label.setBounds(75, 50, 200, 50);
         label.setVerticalAlignment(JLabel.CENTER);
 
-        String latestURL = "https://github.com/BTW-Community/TexturePackConverter/releases/latest";
         button = new JButton();
         button.setText(Language.getString("update.download"));
         button.addActionListener(e -> Utils.openSite(latestURL));
@@ -112,7 +115,7 @@ public class UpdateWindow extends DefaultWindow {
 
         String newVersion = "";
 
-        String urlString = "https://api.github.com/repos/BTW-Community/TexturePackConverter/releases/latest";
+        String urlString = latestAPI;
 
         try {
             URL url = new URL(urlString);

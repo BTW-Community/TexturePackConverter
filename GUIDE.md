@@ -9,7 +9,7 @@
 1. Download the Latest Release [here](https://github.com/BTW-Community/TexturePackConverter/releases/latest)
 2. Unzip the downloaded zip file. The folder should look like this:
 ```
-    ├── TexturePackConverter-1.0.0/
+    ├── TexturePackConverter_1.0.0/
     ┊  ├── TPC_1.0.0.jar
        ├── settings.json
        ├── configs/
@@ -22,7 +22,7 @@
           └── ...
 ```
 3. Run `TPC_1.0.0.jar`
-4. Under `Import As` select a Texture or Resource Pack you want to convert by pressing the `...` to navigate to your Zip File or Directory. Alternatively you can also just paste in the path of a directory or Zip file in the designated field. The last 5 selected Zip files or directories are available in the dropdown.
+4. Under `Import As` select a Texture or Resource Pack you want to convert by pressing the `...` to navigate to your Directory (**Currently selecting the Texture Pack Zip is disabled**). Alternatively you can also just paste in the path of a directory in the designated field. The last 5 selected directories are available in the dropdown.
 5. Choose the Mappings for the MC version of your Texture or Resource Pack in the left dropdown menu.
 6. Under `Export As` select which Version you want to convert to.
 7. Choose the Location and Name of the converted Pack by pasting the path in the designated field or use the `...` button to open a dialog to do this for you. If you just enter a name without a specified location it will be saved to the temp folder.
